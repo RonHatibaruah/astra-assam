@@ -384,29 +384,29 @@ Portal Submission URL Fields:
   };
 
   return (
-    <div className="fixed inset-0 z-[2000] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="bg-[#0B132B] border border-cyan-500/40 rounded-2xl w-full max-w-5xl h-[85vh] flex flex-col shadow-2xl overflow-hidden">
+    <div className="fixed inset-0 z-[2000] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div className="bg-white border border-slate-200 rounded-2xl w-full max-w-5xl h-[85vh] flex flex-col shadow-2xl overflow-hidden text-slate-800">
         {/* Modal Top Bar */}
-        <div className="px-5 py-3.5 bg-[#1C2541] border-b border-slate-700 flex items-center justify-between">
+        <div className="px-5 py-3.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="p-2 rounded-lg bg-cyan-950 text-cyan-400 border border-cyan-700">
+            <div className="p-2 rounded-lg bg-blue-50 text-blue-700 border border-blue-200">
               <FileText className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-base font-bold text-white flex items-center gap-2">
+              <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
                 NESFIC-D-22 Official Proposal Submission Documentation
-                <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 text-xs">
+                <span className="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs">
                   ASSAC Approved Format
                 </span>
               </h2>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-slate-500">
                 AI-Based Smart Transport Monitoring and Traffic Decision-Support for Urban Areas
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-all"
+            className="p-1.5 rounded-lg bg-slate-100 text-slate-500 hover:text-slate-900 hover:bg-slate-200 transition-all cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -415,22 +415,22 @@ Portal Submission URL Fields:
         {/* Modal Body: Left Section List + Right Content Viewer */}
         <div className="flex-1 flex overflow-hidden">
           {/* Section Navigation Drawer */}
-          <div className="w-72 bg-[#0F172A] border-r border-slate-800 p-3 overflow-y-auto space-y-1">
-            <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider px-2 py-1 mb-1">
+          <div className="w-72 bg-slate-50 border-r border-slate-200 p-3 overflow-y-auto space-y-1">
+            <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider px-2 py-1 mb-1">
               Proposal Sections
             </div>
             {sections.map(s => (
               <button
                 key={s.id}
                 onClick={() => setActiveSection(s.id)}
-                className={`w-full text-left px-2.5 py-2 rounded-lg text-xs font-medium transition-all flex flex-col gap-0.5 ${
+                className={`w-full text-left px-2.5 py-2 rounded-lg text-xs font-semibold transition-all flex flex-col gap-0.5 cursor-pointer ${
                   activeSection === s.id
-                    ? 'bg-cyan-600 text-white font-bold shadow-md shadow-cyan-600/30'
-                    : 'text-slate-300 hover:bg-slate-800/80 hover:text-white'
+                    ? 'bg-blue-600 text-white shadow-xs'
+                    : 'text-slate-700 hover:bg-slate-200/80 hover:text-slate-900'
                 }`}
               >
                 <span className="truncate">{s.title}</span>
-                <span className={`text-[10px] ${activeSection === s.id ? 'text-cyan-100' : 'text-slate-500'}`}>
+                <span className={`text-[10px] ${activeSection === s.id ? 'text-blue-100' : 'text-slate-400'}`}>
                   {s.wordCount}
                 </span>
               </button>
@@ -438,37 +438,37 @@ Portal Submission URL Fields:
           </div>
 
           {/* Section Reader & Copy Box */}
-          <div className="flex-1 p-5 overflow-y-auto bg-[#080D1A] flex flex-col justify-between">
+          <div className="flex-1 p-5 overflow-y-auto bg-white flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-800">
+              <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-200">
                 <div>
-                  <h3 className="text-lg font-bold text-cyan-300">{currentSec.title}</h3>
-                  <div className="text-xs text-slate-400 flex items-center gap-2 mt-0.5">
+                  <h3 className="text-lg font-bold text-slate-900">{currentSec.title}</h3>
+                  <div className="text-xs text-slate-500 flex items-center gap-2 mt-0.5">
                     <span>Limit: 500 words</span>
                     <span>•</span>
-                    <span className="text-emerald-400 font-semibold">{currentSec.wordCount}</span>
+                    <span className="text-emerald-700 font-semibold">{currentSec.wordCount}</span>
                   </div>
                 </div>
 
                 <button
                   onClick={handleCopy}
-                  className="px-3.5 py-1.5 bg-cyan-700 hover:bg-cyan-600 text-white rounded-lg text-xs font-bold flex items-center gap-1.5 shadow-md transition-all"
+                  className="px-3.5 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-bold flex items-center gap-1.5 shadow-xs transition-all cursor-pointer"
                 >
-                  {copied ? <Check className="w-4 h-4 text-emerald-300" /> : <Copy className="w-4 h-4" />}
+                  {copied ? <Check className="w-4 h-4 text-emerald-200" /> : <Copy className="w-4 h-4" />}
                   <span>{copied ? 'Copied to Clipboard!' : 'Copy Section Text'}</span>
                 </button>
               </div>
 
               {/* Formatted Content */}
-              <div className="text-xs text-slate-200 leading-relaxed space-y-3 font-normal whitespace-pre-line bg-slate-950 p-4 rounded-xl border border-slate-800/80 shadow-inner">
+              <div className="text-xs text-slate-700 leading-relaxed space-y-3 font-normal whitespace-pre-line bg-slate-50 p-4 rounded-xl border border-slate-200">
                 {currentSec.content}
               </div>
             </div>
 
             {/* Modal Bottom Help Notice */}
-            <div className="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-400 flex items-center justify-between">
+            <div className="mt-4 pt-3 border-t border-slate-100 text-xs text-slate-500 flex items-center justify-between">
               <span>Ready for copy-paste into the Assam Startup portal form fields.</span>
-              <span className="text-cyan-400 font-mono">Word Limit Compliance: Verified &lt; 500 Words</span>
+              <span className="text-blue-700 font-mono font-medium">Word Limit Compliance: Verified &lt; 500 Words</span>
             </div>
           </div>
         </div>

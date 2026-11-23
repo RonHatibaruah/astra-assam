@@ -12,29 +12,29 @@
   }
 }
 
-/* Custom Scrollbar for Command Center */
+/* Custom Scrollbar for Light Theme */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0B132B;
+  background: #F1F5F9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1C2541;
+  background: #CBD5E1;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3A506B;
+  background: #94A3B8;
 }
 
 /* Pulse Glow & Radar Keyframes */
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 15px rgba(91, 192, 190, 0.4);
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.3);
   }
   50% {
-    box-shadow: 0 0 25px rgba(91, 192, 190, 0.8);
+    box-shadow: 0 0 25px rgba(37, 99, 235, 0.6);
   }
 }
 
@@ -57,21 +57,22 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(91, 192, 190, 0.8), transparent);
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.8), transparent);
   animation: scanline 4s linear infinite;
 }
 
-/* Leaflet dark styling adjustments */
+/* Leaflet light styling adjustments */
 .leaflet-container {
-  background: #080D1A !important;
+  background: #E2E8F0 !important;
   font-family: inherit;
 }
 .leaflet-popup-content-wrapper {
-  background: #0F172A !important;
-  color: #F8FAFC !important;
-  border: 1px solid #334155;
+  background: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid #E2E8F0;
   border-radius: 8px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
 }
 .leaflet-popup-tip {
-  background: #0F172A !important;
+  background: #FFFFFF !important;
 }

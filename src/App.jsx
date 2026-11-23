@@ -108,7 +108,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#080D1A] text-slate-100 flex flex-col font-sans">
+    <div className="min-h-screen bg-slate-100 text-slate-800 flex flex-col font-sans">
       {/* Top Application Header */}
       <Header
         emergencyActive={emergencyActive}
@@ -126,14 +126,14 @@ export default function App() {
       {/* Main Container */}
       <main className="flex-1 p-3 sm:p-4 max-w-[1720px] mx-auto w-full space-y-4">
         {/* Navigation Tabs Bar */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 bg-[#0B132B] p-2 rounded-xl border border-slate-800 shadow-md">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 bg-white p-2 rounded-xl border border-slate-200 shadow-xs">
           <div className="flex items-center space-x-1.5 overflow-x-auto w-full sm:w-auto">
             <button
               onClick={() => setActiveTab('command')}
-              className={`flex items-center space-x-2 px-3.5 py-2 rounded-lg text-xs font-bold transition-all ${
+              className={`flex items-center space-x-2 px-3.5 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                 activeTab === 'command'
-                  ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-600/30'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                  ? 'bg-blue-600 text-white shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
               }`}
             >
               <LayoutDashboard className="w-4 h-4" />
@@ -142,10 +142,10 @@ export default function App() {
 
             <button
               onClick={() => setActiveTab('analytics')}
-              className={`flex items-center space-x-2 px-3.5 py-2 rounded-lg text-xs font-bold transition-all ${
+              className={`flex items-center space-x-2 px-3.5 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                 activeTab === 'analytics'
-                  ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-600/30'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                  ? 'bg-blue-600 text-white shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
               }`}
             >
               <BarChart2 className="w-4 h-4" />
@@ -154,10 +154,10 @@ export default function App() {
 
             <button
               onClick={() => setActiveTab('transit')}
-              className={`flex items-center space-x-2 px-3.5 py-2 rounded-lg text-xs font-bold transition-all ${
+              className={`flex items-center space-x-2 px-3.5 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                 activeTab === 'transit'
-                  ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-600/30'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                  ? 'bg-blue-600 text-white shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
               }`}
             >
               <Bus className="w-4 h-4" />
@@ -166,10 +166,10 @@ export default function App() {
 
             <button
               onClick={() => setActiveTab('sandbox')}
-              className={`flex items-center space-x-2 px-3.5 py-2 rounded-lg text-xs font-bold transition-all ${
+              className={`flex items-center space-x-2 px-3.5 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                 activeTab === 'sandbox'
-                  ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-600/30'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                  ? 'bg-blue-600 text-white shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
               }`}
             >
               <PlayCircle className="w-4 h-4" />
@@ -179,22 +179,22 @@ export default function App() {
             {adminUser && (
               <button
                 onClick={() => setActiveTab('admin')}
-                className={`flex items-center space-x-2 px-3.5 py-2 rounded-lg text-xs font-bold transition-all ${
+                className={`flex items-center space-x-2 px-3.5 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   activeTab === 'admin'
-                    ? 'bg-gradient-to-r from-teal-600 to-cyan-600 text-white shadow-lg shadow-cyan-600/30'
-                    : 'text-teal-400 hover:text-white hover:bg-teal-950/60 border border-teal-800/60'
+                    ? 'bg-gradient-to-r from-blue-700 to-indigo-700 text-white shadow-xs'
+                    : 'text-blue-700 hover:text-blue-900 hover:bg-blue-50 border border-blue-200'
                 }`}
               >
-                <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                <ShieldCheck className="w-4 h-4 text-emerald-500" />
                 <span>Executive Admin Console</span>
               </button>
             )}
           </div>
 
           {/* Quick Info Badge */}
-          <div className="text-xs text-slate-400 hidden lg:flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-            <span>Real-time Telemetry: <strong className="text-cyan-300">Guwahati Urban Arterials</strong></span>
+          <div className="text-xs text-slate-500 hidden lg:flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-blue-600 animate-ping"></span>
+            <span>Real-time Telemetry: <strong className="text-slate-800">Guwahati Urban Arterials</strong></span>
           </div>
         </div>
 
@@ -323,9 +323,9 @@ export default function App() {
       />
 
       {/* Global Application Footer */}
-      <footer className="mt-6 border-t border-slate-800 bg-[#0B132B] px-4 py-3 text-xs text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <footer className="mt-6 border-t border-slate-200 bg-white px-4 py-3.5 text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-2 shadow-xs">
         <div className="flex items-center space-x-2">
-          <span className="font-bold text-slate-300">ASTRA-Assam</span>
+          <span className="font-bold text-slate-800">ASTRA-Assam</span>
           <span>•</span>
           <span>NESFIC 2026 Problem Statement: NESFIC-D-22</span>
           <span>•</span>
@@ -334,13 +334,13 @@ export default function App() {
         <div className="flex items-center space-x-4">
           <button 
             onClick={() => setProofOfWorkOpen(true)}
-            className="text-emerald-400 hover:text-emerald-300 font-semibold underline cursor-pointer"
+            className="text-emerald-700 hover:text-emerald-800 font-semibold underline cursor-pointer"
           >
             Proof of Work (PDF)
           </button>
           <button 
             onClick={() => setProposalModalOpen(true)}
-            className="text-cyan-400 hover:text-cyan-300 font-semibold underline cursor-pointer"
+            className="text-blue-600 hover:text-blue-700 font-semibold underline cursor-pointer"
           >
             Proposal Document (12 Sections)
           </button>

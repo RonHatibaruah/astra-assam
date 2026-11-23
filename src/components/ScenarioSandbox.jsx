@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CloudRain, Crown, Construction, Play, CheckCircle2, RotateCcw, AlertTriangle } from 'lucide-react';
+import { CloudRain, Crown, Construction, Play, RotateCcw } from 'lucide-react';
 
 export default function ScenarioSandbox({ onApplyScenario }) {
   const [activeScenario, setActiveScenario] = useState('none');
@@ -10,7 +10,7 @@ export default function ScenarioSandbox({ onApplyScenario }) {
       id: 'monsoon-flood',
       title: 'Monsoon Flash Flood Event (50mm/h)',
       icon: CloudRain,
-      color: 'text-blue-400',
+      color: 'text-blue-600',
       description: 'Simulates waterlogging on RG Baruah Road & Bharalumukh; 42% volume diverted to GS Road.',
       impactSpeed: '-38%',
       impactDelay: '+45%',
@@ -20,7 +20,7 @@ export default function ScenarioSandbox({ onApplyScenario }) {
       id: 'vip-convoy',
       title: 'VIP Convoy Movement (Dispur Capital)',
       icon: Crown,
-      color: 'text-amber-400',
+      color: 'text-amber-600',
       description: 'Preempts GS Road - Ganeshguri Flyover corridor for 18 minutes during official delegation transit.',
       impactSpeed: '-22%',
       impactDelay: '+30%',
@@ -30,7 +30,7 @@ export default function ScenarioSandbox({ onApplyScenario }) {
       id: 'flyover-maintenance',
       title: 'Maligaon Flyover Lane Maintenance',
       icon: Construction,
-      color: 'text-rose-400',
+      color: 'text-rose-600',
       description: 'One lane closed westbound towards Jalukbari for resurfacing works.',
       impactSpeed: '-28%',
       impactDelay: '+35%',
@@ -53,23 +53,23 @@ export default function ScenarioSandbox({ onApplyScenario }) {
   };
 
   return (
-    <div className="bg-[#0F172A] border border-slate-800 rounded-xl p-4 shadow-xl flex flex-col justify-between h-full">
+    <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm flex flex-col justify-between h-full text-slate-800">
       {/* Header */}
-      <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+      <div className="flex items-center justify-between pb-3 border-b border-slate-100">
         <div className="flex items-center space-x-2">
-          <div className="p-1.5 rounded-lg bg-indigo-950 border border-indigo-800 text-indigo-400">
+          <div className="p-1.5 rounded-lg bg-indigo-50 border border-indigo-200 text-indigo-700">
             <Play className="w-4 h-4" />
           </div>
           <div>
-            <h3 className="text-sm font-bold text-white">ASSAC "What-If" Scenario Sandbox</h3>
-            <p className="text-xs text-slate-400">Predictive Spatial Simulation & Policy Modeling</p>
+            <h3 className="text-sm font-bold text-slate-900">ASSAC "What-If" Scenario Sandbox</h3>
+            <p className="text-xs text-slate-500">Predictive Spatial Simulation & Policy Modeling</p>
           </div>
         </div>
 
         {activeScenario !== 'none' && (
           <button
             onClick={handleReset}
-            className="flex items-center gap-1 text-xs text-slate-400 hover:text-white px-2 py-1 rounded bg-slate-800 transition-all"
+            className="flex items-center gap-1 text-xs text-slate-600 hover:text-slate-900 px-2.5 py-1 rounded-md bg-slate-100 border border-slate-200 transition-all cursor-pointer"
           >
             <RotateCcw className="w-3 h-3" /> Reset Normal
           </button>
@@ -84,42 +84,42 @@ export default function ScenarioSandbox({ onApplyScenario }) {
           return (
             <div
               key={sc.id}
-              className={`p-3 rounded-lg border transition-all ${
+              className={`p-3.5 rounded-xl border transition-all ${
                 isSelected
-                  ? 'bg-slate-900 border-indigo-500 shadow-md shadow-indigo-500/20'
-                  : 'bg-slate-900/60 border-slate-800 hover:border-slate-700'
+                  ? 'bg-indigo-50/70 border-indigo-300 shadow-sm'
+                  : 'bg-slate-50 border-slate-200 hover:border-slate-300'
               }`}
             >
               <div className="flex items-center justify-between mb-1.5">
-                <span className="font-bold text-xs text-white flex items-center gap-2">
+                <span className="font-bold text-xs text-slate-900 flex items-center gap-2">
                   <Icon className={`w-4 h-4 ${sc.color}`} />
                   {sc.title}
                 </span>
                 <button
                   onClick={() => handleRunScenario(sc.id)}
                   disabled={simulationRunning}
-                  className={`px-2.5 py-1 rounded text-[11px] font-semibold transition-all ${
+                  className={`px-3 py-1 rounded-md text-[11px] font-bold transition-all cursor-pointer ${
                     isSelected
                       ? 'bg-indigo-600 text-white'
-                      : 'bg-slate-800 hover:bg-slate-700 text-slate-300'
+                      : 'bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 shadow-xs'
                   }`}
                 >
                   {isSelected ? 'Simulating' : 'Run Simulation'}
                 </button>
               </div>
 
-              <p className="text-[11px] text-slate-300 mb-2">
+              <p className="text-[11px] text-slate-600 mb-2">
                 {sc.description}
               </p>
 
-              <div className="grid grid-cols-2 gap-2 text-[10px] bg-slate-950 p-1.5 rounded border border-slate-800/80">
-                <div>Speed Impact: <span className="text-rose-400 font-bold">{sc.impactSpeed}</span></div>
-                <div>Queue Delay: <span className="text-amber-400 font-bold">{sc.impactDelay}</span></div>
+              <div className="grid grid-cols-2 gap-2 text-[10px] bg-white p-2 rounded-lg border border-slate-200">
+                <div>Speed Impact: <span className="text-red-700 font-bold">{sc.impactSpeed}</span></div>
+                <div>Queue Delay: <span className="text-amber-700 font-bold">{sc.impactDelay}</span></div>
               </div>
 
               {isSelected && (
-                <div className="mt-2 text-[11px] text-indigo-300 bg-indigo-950/60 p-1.5 rounded border border-indigo-800/60">
-                  <span className="font-bold">Mitigation Strategy: </span>
+                <div className="mt-2 text-[11px] text-indigo-900 bg-indigo-100/70 p-2 rounded-lg border border-indigo-200">
+                  <span className="font-bold text-indigo-950">Mitigation Strategy: </span>
                   {sc.recommendedPlan}
                 </div>
               )}
@@ -129,9 +129,9 @@ export default function ScenarioSandbox({ onApplyScenario }) {
       </div>
 
       {/* Footer */}
-      <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+      <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
         <span>Microscopic Simulation Kernel: SUMO-Calibrated</span>
-        <span className="text-indigo-400 font-mono">ASSAC Spatial Sandbox</span>
+        <span className="text-indigo-700 font-semibold font-mono">ASSAC Spatial Sandbox</span>
       </div>
     </div>
   );

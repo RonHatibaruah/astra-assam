@@ -1,0 +1,227 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" style="background:#ffffff; font-family:'Inter',system-ui,-apple-system,sans-serif;">
+  <defs>
+    <!-- Blueprint Grid -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#f1f5f9" stroke-width="1.5"/>
+    </pattern>
+    <linearGradient id="gradHeader" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <linearGradient id="gradCard1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- Background Grid -->
+  <rect width="1600" height="900" fill="#ffffff"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+
+  <!-- TOP HEADER BANNER -->
+  <rect x="50" y="40" width="1500" height="110" rx="12" fill="#0f172a" filter="url(#shadow)"/>
+  <rect x="50" y="40" width="12" height="110" rx="4" fill="#0284c7"/>
+  
+  <text x="85" y="75" fill="#38bdf8" font-size="13" font-weight="800" letter-spacing="1.5">GOVERNMENT OF ASSAM • NESFIC-D-22 ARCHITECTURAL BLUEPRINT</text>
+  <text x="85" y="108" fill="#ffffff" font-size="26" font-weight="900" letter-spacing="-0.5">ASTRA-Assam: End-to-End Edge-Cloud Smart Transport Architecture</text>
+  <text x="85" y="132" fill="#94a3b8" font-size="13" font-weight="500">Unified Spatial-Temporal Decision Support System for Assam State Space Application Centre (ASSAC)</text>
+
+  <!-- Status Badges Top Right -->
+  <rect x="1170" y="65" width="160" height="34" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <circle cx="1190" cy="82" r="5" fill="#10b981"/>
+  <text x="1205" y="86" fill="#f8fafc" font-size="11" font-weight="700">Sub-35ms Inference</text>
+
+  <rect x="1345" y="65" width="185" height="34" rx="6" fill="#0369a1" stroke="#0284c7" stroke-width="1"/>
+  <text x="1362" y="86" fill="#ffffff" font-size="11" font-weight="800">Assam SDC Deployed</text>
+
+  <!-- 4 PIPELINE TIERS (TIER CARDS) -->
+  
+  <!-- TIER 1: SENSING & INGESTION -->
+  <g transform="translate(50, 180)">
+    <rect width="345" height="580" rx="12" fill="url(#gradCard1)" stroke="#cbd5e1" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="345" height="48" rx="12" fill="#f1f5f9"/>
+    <rect x="0" y="36" width="345" height="12" fill="#f1f5f9"/>
+    <text x="20" y="30" fill="#0f172a" font-size="14" font-weight="800">1. SENSING &amp; INGESTION</text>
+    <rect x="250" y="12" width="75" height="24" rx="4" fill="#e0f2fe"/>
+    <text x="260" y="28" fill="#0369a1" font-size="10" font-weight="700">INPUTS</text>
+
+    <!-- Node 1.1 -->
+    <rect x="20" y="70" width="305" height="95" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2"/>
+    <text x="35" y="96" fill="#0369a1" font-size="13" font-weight="700">Existing Traffic CCTV Cameras</text>
+    <text x="35" y="118" fill="#475569" font-size="11">GSCL / Police 1080p surveillance</text>
+    <text x="35" y="136" fill="#64748b" font-size="10" font-weight="600">Protocol: RTSP / H.264 @ 25 FPS</text>
+    <circle cx="295" cy="115" r="14" fill="#e0f2fe"/>
+    <text x="290" y="119" fill="#0369a1" font-size="11" font-weight="bold">📹</text>
+
+    <!-- Node 1.2 -->
+    <rect x="20" y="180" width="305" height="95" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2"/>
+    <text x="35" y="206" fill="#0369a1" font-size="13" font-weight="700">ASTC Public City Buses</text>
+    <text x="35" y="228" fill="#475569" font-size="11">Fleet GPS coordinate telemetry</text>
+    <text x="35" y="246" fill="#64748b" font-size="10" font-weight="600">Protocol: GTFS-RT / MQTT Stream</text>
+    <circle cx="295" cy="225" r="14" fill="#dcfce7"/>
+    <text x="290" y="229" fill="#166534" font-size="11" font-weight="bold">🚌</text>
+
+    <!-- Node 1.3 -->
+    <rect x="20" y="290" width="305" height="95" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2"/>
+    <text x="35" y="316" fill="#dc2626" font-size="13" font-weight="700">108 Emergency Ambulances</text>
+    <text x="35" y="338" fill="#475569" font-size="11">GVK-EMRI emergency hospital dispatches</text>
+    <text x="35" y="356" fill="#64748b" font-size="10" font-weight="600">Protocol: High-Priority MQTT Socket</text>
+    <circle cx="295" cy="335" r="14" fill="#fee2e2"/>
+    <text x="290" y="339" fill="#dc2626" font-size="11" font-weight="bold">🚑</text>
+
+    <!-- Node 1.4 -->
+    <rect x="20" y="400" width="305" height="100" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2"/>
+    <text x="35" y="426" fill="#0369a1" font-size="13" font-weight="700">ASSAC GIS Data Layers</text>
+    <text x="35" y="448" fill="#475569" font-size="11">Bhuvan road centerline &amp; elevation DEM</text>
+    <text x="35" y="466" fill="#64748b" font-size="10" font-weight="600">Format: OGC GeoJSON / WMS Vectors</text>
+    <circle cx="295" cy="445" r="14" fill="#fef3c7"/>
+    <text x="290" y="449" fill="#92400e" font-size="11" font-weight="bold">🗺️</text>
+
+    <!-- Footer tag -->
+    <rect x="20" y="520" width="305" height="40" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="35" y="544" fill="#64748b" font-size="10" font-weight="700">ZERO ROAD-CUTTING CAPEX INTRUSION</text>
+  </g>
+
+  <!-- TIER 2: EDGE COMPUTING TIER -->
+  <g transform="translate(435, 180)">
+    <rect width="345" height="580" rx="12" fill="url(#gradCard1)" stroke="#cbd5e1" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="345" height="48" rx="12" fill="#f1f5f9"/>
+    <rect x="0" y="36" width="345" height="12" fill="#f1f5f9"/>
+    <text x="20" y="30" fill="#0f172a" font-size="14" font-weight="800">2. EDGE COMPUTING TIER</text>
+    <rect x="230" y="12" width="95" height="24" rx="4" fill="#dbeafe"/>
+    <text x="238" y="28" fill="#1e40af" font-size="10" font-weight="700">JUNCTION AI</text>
+
+    <!-- Hardware Box -->
+    <rect x="20" y="70" width="305" height="110" rx="8" fill="#0f172a" stroke="#334155"/>
+    <text x="35" y="98" fill="#38bdf8" font-size="13" font-weight="800">Industrial Edge GPU Appliance</text>
+    <text x="35" y="120" fill="#cbd5e1" font-size="11">Nvidia Jetson Orin / IP67 Enclosure</text>
+    <text x="35" y="142" fill="#94a3b8" font-size="10">• 275 TOPS INT8 Tensor Cores</text>
+    <text x="35" y="158" fill="#94a3b8" font-size="10">• Weatherproof -20°C to +65°C rated</text>
+
+    <!-- CV Algorithm Box -->
+    <rect x="20" y="195" width="305" height="175" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2"/>
+    <text x="35" y="222" fill="#0f172a" font-size="13" font-weight="800">Regional Computer Vision Engine</text>
+    <text x="35" y="244" fill="#0284c7" font-size="11" font-weight="700">Custom YOLOv8/v10 + ByteTrack</text>
+    <text x="35" y="266" fill="#475569" font-size="10">✓ 6 Classes: Auto, E-Rickshaw, Bike, Bus, Car, Truck</text>
+    <text x="35" y="286" fill="#475569" font-size="10">✓ Multi-camera persistent trajectory tracking</text>
+    <text x="35" y="306" fill="#475569" font-size="10">✓ Queue length, density, &amp; velocity vectors</text>
+    <text x="35" y="326" fill="#16a34a" font-size="10" font-weight="700">✓ Benchmark: 31.8 FPS (Sub-35ms latency)</text>
+    <text x="35" y="346" fill="#d97706" font-size="10" font-weight="700">✓ Monsoon CLAHE De-Haze &amp; Rain filtering</text>
+
+    <!-- DPDP Shield -->
+    <rect x="20" y="385" width="305" height="115" rx="8" fill="#f0fdf4" stroke="#86efac"/>
+    <text x="35" y="412" fill="#166534" font-size="12" font-weight="800">DPDP Act 2023 Privacy by Design</text>
+    <text x="35" y="432" fill="#15803d" font-size="10">• Video processed entirely in edge RAM</text>
+    <text x="35" y="448" fill="#15803d" font-size="10">• Raw frames dropped instantly (&lt;100ms)</text>
+    <text x="35" y="464" fill="#15803d" font-size="10">• Automatic license plate &amp; face blurring</text>
+    <text x="35" y="480" fill="#15803d" font-size="10">• Zero citizen mass surveillance</text>
+
+    <!-- Footer tag -->
+    <rect x="20" y="520" width="305" height="40" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="35" y="544" fill="#0284c7" font-size="10" font-weight="700">EDGE AUTONOMOUS: RUNS OFFLINE IF NETWORK DROPS</text>
+  </g>
+
+  <!-- TIER 3: CENTRAL SPATIAL & DECISION ENGINE -->
+  <g transform="translate(820, 180)">
+    <rect width="345" height="580" rx="12" fill="url(#gradCard1)" stroke="#cbd5e1" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="345" height="48" rx="12" fill="#f1f5f9"/>
+    <rect x="0" y="36" width="345" height="12" fill="#f1f5f9"/>
+    <text x="20" y="30" fill="#0f172a" font-size="14" font-weight="800">3. CENTRAL SPATIAL &amp; DECISION</text>
+    <rect x="235" y="12" width="90" height="24" rx="4" fill="#fae8ff"/>
+    <text x="245" y="28" fill="#86198f" font-size="10" font-weight="700">SDC CLOUD</text>
+
+    <!-- Message Broker -->
+    <rect x="20" y="70" width="305" height="85" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2"/>
+    <text x="35" y="96" fill="#0369a1" font-size="13" font-weight="700">Kafka &amp; Redis Pub/Sub Stream</text>
+    <text x="35" y="118" fill="#475569" font-size="11">Low-latency event bus for telemetry payloads</text>
+    <text x="35" y="136" fill="#64748b" font-size="10" font-weight="600">Throughput: 50,000 events/sec @ 8ms</text>
+
+    <!-- Decision Engine Core -->
+    <rect x="20" y="170" width="305" height="135" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2"/>
+    <text x="35" y="196" fill="#0f172a" font-size="13" font-weight="800">Webster Adaptive Signal Engine</text>
+    <text x="35" y="218" fill="#0284c7" font-size="11" font-weight="700">Modified Webster's Delay Formula</text>
+    <text x="35" y="238" fill="#475569" font-size="10">• Real-time multi-junction split-cycle optimization</text>
+    <text x="35" y="256" fill="#475569" font-size="10">• Queue discharge rate calculation</text>
+    <text x="35" y="274" fill="#16a34a" font-size="10" font-weight="700">• Validated Queue Delay Reduction: -18.7%</text>
+
+    <!-- Spatial & Forecaster -->
+    <rect x="20" y="320" width="305" height="135" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2"/>
+    <text x="35" y="346" fill="#0f172a" font-size="13" font-weight="800">ASSAC PostGIS &amp; ST-GNN AI</text>
+    <text x="35" y="368" fill="#0284c7" font-size="11" font-weight="700">Spatial Topology &amp; Predictive Forecaster</text>
+    <text x="35" y="388" fill="#475569" font-size="10">• Spatio-Temporal Graph Neural Network</text>
+    <text x="35" y="406" fill="#475569" font-size="10">• 15, 30, and 60-min congestion forecaster</text>
+    <text x="35" y="424" fill="#d97706" font-size="10" font-weight="700">• Terrain slope &amp; monsoon flash-flood routing</text>
+
+    <!-- Security note -->
+    <rect x="20" y="475" width="305" height="85" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="35" y="500" fill="#0f172a" font-size="11" font-weight="700">Assam State Data Centre (SDC) Hosting</text>
+    <text x="35" y="520" fill="#64748b" font-size="10">• 100% Indian Data Sovereignty • TLS 1.3 Encryption</text>
+    <text x="35" y="538" fill="#16a34a" font-size="10" font-weight="700">✓ CERT-In Cyber Security Standard Compliant</text>
+  </g>
+
+  <!-- TIER 4: COMMAND & CONTROL TIER -->
+  <g transform="translate(1205, 180)">
+    <rect width="345" height="580" rx="12" fill="url(#gradCard1)" stroke="#cbd5e1" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="345" height="48" rx="12" fill="#f1f5f9"/>
+    <rect x="0" y="36" width="345" height="12" fill="#f1f5f9"/>
+    <text x="20" y="30" fill="#0f172a" font-size="14" font-weight="800">4. COMMAND &amp; CONTROL</text>
+    <rect x="230" y="12" width="95" height="24" rx="4" fill="#fef3c7"/>
+    <text x="238" y="28" fill="#92400e" font-size="10" font-weight="700">OPERATORS</text>
+
+    <!-- UI Module 1 -->
+    <rect x="20" y="70" width="305" height="105" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2"/>
+    <text x="35" y="96" fill="#0369a1" font-size="13" font-weight="700">Unified GIS Command Center</text>
+    <text x="35" y="118" fill="#475569" font-size="11">React 18 + Leaflet GIS + Recharts</text>
+    <text x="35" y="136" fill="#64748b" font-size="10">• Corridor Level of Service (LOS A-F) heatmaps</text>
+    <text x="35" y="152" fill="#64748b" font-size="10">• Live camera telemetry &amp; queue meters</text>
+
+    <!-- UI Module 2 -->
+    <rect x="20" y="190" width="305" height="115" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.2"/>
+    <text x="35" y="216" fill="#dc2626" font-size="13" font-weight="800">108 Emergency Green Wave</text>
+    <text x="35" y="238" fill="#b91c1c" font-size="11" font-weight="700">Automated Signal Preemption Engine</text>
+    <text x="35" y="258" fill="#475569" font-size="10">• Synchronized downstream green-hold (+40s)</text>
+    <text x="35" y="276" fill="#dc2626" font-size="10" font-weight="800">• Jalukbari to GMCH: -39.3% Transit Delay</text>
+    <text x="35" y="292" fill="#475569" font-size="10">• Automatic revert to fixed plan post-clearance</text>
+
+    <!-- UI Module 3 -->
+    <rect x="20" y="320" width="305" height="105" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2"/>
+    <text x="35" y="346" fill="#0f172a" font-size="13" font-weight="700">Admin Console &amp; Failsafe</text>
+    <text x="35" y="368" fill="#475569" font-size="11">Role-Based Access Control (RBAC)</text>
+    <text x="35" y="386" fill="#64748b" font-size="10">• Signal timing overrides &amp; calibration</text>
+    <text x="35" y="402" fill="#16a34a" font-size="10" font-weight="700">• 500ms Hardware Failsafe Revert Mechanism</text>
+
+    <!-- UI Module 4 -->
+    <rect x="20" y="440" width="305" height="120" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2"/>
+    <text x="35" y="466" fill="#0369a1" font-size="13" font-weight="700">ASSAC Planning &amp; Sandbox</text>
+    <text x="35" y="488" fill="#475569" font-size="11">Simulate flyover closures &amp; road widening</text>
+    <text x="35" y="506" fill="#64748b" font-size="10">• Automated CO2/PM2.5 emissions counter</text>
+    <text x="35" y="524" fill="#64748b" font-size="10">• Certified immutable CSV/PDF audit trails</text>
+  </g>
+
+  <!-- Connective Arrows between Tiers -->
+  <g fill="#0284c7" stroke="#0284c7" stroke-width="2">
+    <!-- Arrow 1 to 2 -->
+    <line x1="395" y1="470" x2="430" y2="470"/>
+    <polygon points="435,470 425,465 425,475"/>
+
+    <!-- Arrow 2 to 3 -->
+    <line x1="780" y1="470" x2="815" y2="470"/>
+    <polygon points="820,470 810,465 810,475"/>
+
+    <!-- Arrow 3 to 4 -->
+    <line x1="1165" y1="470" x2="1200" y2="470"/>
+    <polygon points="1205,470 1195,465 1195,475"/>
+  </g>
+
+  <!-- BOTTOM FOOTER -->
+  <rect x="50" y="790" width="1500" height="70" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="80" y="830" fill="#64748b" font-size="12" font-weight="600">
+    ASTRA-Assam Architecture Framework • North East Seva First Innovation Challenge 2026 • Problem Statement NESFIC-D-22
+  </text>
+  <text x="1250" y="830" fill="#0284c7" font-size="12" font-weight="800">
+    ASSAC / Govt. of Assam Approved Blueprint
+  </text>
+</svg>

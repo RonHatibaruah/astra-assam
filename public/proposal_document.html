@@ -309,6 +309,10 @@
       <p>
         <strong>Wireframes & High-Fidelity Prototype:</strong> The fully functional web application prototype is accessible via <code>https://astra-assam.pages.dev/</code> and features 4 zones: Top Telemetry Bar, Interactive Central GIS Map (Leaflet/MapLibre), Left Live Video & Detection Analytics Drawer, and Right Decision Support & Emergency Action Panel.
       </p>
+      <div style="margin: 14px 0;" class="avoid-break">
+        <img src="assets/infographic_emergency_green_wave.png" alt="Guwahati Corridors and 108 Emergency Green Wave Preemption Framework" style="width: 100%; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 14px rgba(0,0,0,0.06);" />
+        <div style="font-size: 8.5px; color: #64748b; text-align: center; margin-top: 5px; font-weight: 600;">Figure 1: Guwahati Urban Corridors & 108 Emergency Ambulance Synchronized Green Wave Preemption Framework (Jalukbari to GMCH)</div>
+      </div>
     </div>
 
     <!-- SECTION 4 -->
@@ -317,25 +321,10 @@
       <p>
         ASTRA-Assam is architected on a modular, microservices-driven hybrid edge-cloud infrastructure ensuring sub-second decision latency and full compliance with Assam State Data Centre (SDC) deployment standards.
       </p>
-      <div class="diagram-box">
-[Traffic CCTV Cameras / ASTC GPS] 
-              │ (RTSP Video / MQTT Telemetry)
-              ▼
-[Edge Inference Node: YOLOv8 + ByteTrack]
-  ├─ Multi-class vehicle counts, speeds & queue lengths
-  └─ Incident bounding box & anomaly triggers (sub-35ms)
-              │ (JSON Payloads via WebSocket/Kafka)
-              ▼
-[Central Decision & Spatial Engine (FastAPI + PostGIS)]
-  ├─ Real-time Level of Service (LOS A through F) calculation
-  ├─ Webster Adaptive Signal Split-Cycle Optimizer
-  └─ 15/30/60-min Spatio-temporal Congestion Forecaster (ST-GNN)
-              │
-              ▼
-[Operator Command Dashboard (React 18 + Leaflet GIS)]
-  ├─ Live Interactive GIS Map & Congestion Heatmap
-  ├─ Adaptive Signal Controls & 108 Emergency Green Wave Preemption
-  └─ Admin Management Console & Certified CSV Audit Trail</div>
+      <div style="margin: 14px 0;" class="avoid-break">
+        <img src="assets/infographic_system_architecture.png" alt="ASTRA-Assam End-to-End Edge-Cloud Smart Transport Architecture" style="width: 100%; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 14px rgba(0,0,0,0.06);" />
+        <div style="font-size: 8.5px; color: #64748b; text-align: center; margin-top: 5px; font-weight: 600;">Figure 2: ASTRA-Assam End-to-End Edge-Cloud System Architecture Blueprint</div>
+      </div>
       <ul>
         <li><strong>Edge AI Layer:</strong> Python 3.11+, TensorRT, ONNX Runtime, and OpenCV running on industrial edge GPU nodes (Nvidia Jetson Orin). Fine-tuned YOLOv8/v10 for regional vehicle classes with ByteTrack trajectory tracking.</li>
         <li><strong>Data Ingestion & Event Streaming:</strong> Apache Kafka / Redis Streams handling real-time camera telemetry and GPS coordinate pings.</li>
@@ -535,6 +524,10 @@
           </ul>
         </li>
       </ul>
+      <div style="margin: 14px 0;" class="avoid-break">
+        <img src="assets/infographic_mixed_traffic_benchmarks.png" alt="Regional Mixed-Traffic AI Benchmark Matrix" style="width: 100%; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 14px rgba(0,0,0,0.06);" />
+        <div style="font-size: 8.5px; color: #64748b; text-align: center; margin-top: 5px; font-weight: 600;">Figure 3: ASTRA-Assam Regional Mixed-Traffic Vehicle Classification & Empirical Performance Benchmark Matrix</div>
+      </div>
     </div>
 
     <!-- SECTION 10 -->
@@ -640,6 +633,11 @@
           </tr>
         </tbody>
       </table>
+
+      <div style="margin: 14px 0;" class="avoid-break">
+        <img src="assets/infographic_budget_and_roadmap.png" alt="Budget Allocation and 24-Week Implementation Roadmap" style="width: 100%; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 14px rgba(0,0,0,0.06);" />
+        <div style="font-size: 8.5px; color: #64748b; text-align: center; margin-top: 5px; font-weight: 600;">Figure 4: ASTRA-Assam ₹40.00 Lakhs Problem Statement Budget Allocation & 24-Week Deployment Roadmap</div>
+      </div>
 
       <h3>B. Key Risks & Mitigation Strategy</h3>
       <table>

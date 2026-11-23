@@ -203,30 +203,10 @@
     </p>
 
     <h2>2. End-to-End System Architecture</h2>
-    <div class="diagram-box">
-+---------------------------------------------------------------------------------------------+
-|                           ASTRA-ASSAM SYSTEM ARCHITECTURE                                   |
-+---------------------------------------------------------------------------------------------+
- [CCTV Surveillance RTSP Streams]          [ASTC City Bus GPS / 108 Ambulance Telemetry]
-              |                                                   |
-              v                                                   v
- [Edge AI Inference: YOLOv8 + ByteTrack]            [Kafka / Redis Stream Message Broker]
-   - Multi-class counts (Auto, Bike, Car, Bus)                    |
-   - Queue Length & Velocity Vectors                              |
-              |                                                   |
-              +--------------------------+------------------------+
-                                         v
-                 [FastAPI Central Decision & Spatial Engine]
-                   - Webster Adaptive Signal Optimizer
-                   - 15/30/60-min ST-GNN Congestion Forecaster
-                   - PostGIS Road Topology Graph (ASSAC Standards)
-                                         |
-                                         v
-               [State Command & Control Dashboard (React + Leaflet GIS)]
-                 - Real-Time Corridor Level of Service (LOS A-F) Heatmaps
-                 - One-Click 108 Emergency Green Wave Preemption
-                 - Admin Management Console & Certified CSV Audit Trail
-+---------------------------------------------------------------------------------------------+</div>
+    <div style="margin: 14px 0;">
+      <img src="assets/infographic_system_architecture.png" alt="ASTRA-Assam System Architecture Framework" style="width: 100%; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 14px rgba(0,0,0,0.06);" />
+      <div style="font-size: 9px; color: #64748b; text-align: center; margin-top: 5px; font-weight: 600;">Figure A: ASTRA-Assam Edge-Cloud Microservices &amp; Decision-Support Architecture Blueprint</div>
+    </div>
   </div>
 
   <!-- PAGE 2: WIREFRAMES & PROTOTYPE SCREEN EVIDENCE -->
@@ -292,6 +272,11 @@
       <tr><td><strong>Overall Regional Average</strong></td><td><strong>25,000+</strong></td><td><strong>94.3%</strong></td><td><strong>92.5%</strong></td><td><strong>92.4%</strong></td></tr>
     </table>
 
+    <div style="margin: 14px 0;">
+      <img src="assets/infographic_mixed_traffic_benchmarks.png" alt="Regional Mixed-Traffic AI Benchmark Matrix" style="width: 100%; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 14px rgba(0,0,0,0.06);" />
+      <div style="font-size: 9px; color: #64748b; text-align: center; margin-top: 5px; font-weight: 600;">Figure B: Regional Vehicle Classification &amp; Edge Hardware Performance Matrix</div>
+    </div>
+
     <h2>4. 108 Emergency "Green Wave" Preemption Evidence</h2>
     <p>
       During simulated emergency transits from Jalukbari Interchange to Guwahati Medical College Hospital (GMCH, Bhangagarh), the synchronized preemption controller held downstream green lights 40 seconds prior to ambulance arrival. Results:
@@ -301,6 +286,11 @@
       <li><strong>ASTRA-Assam Green Wave Transit Time:</strong> 16 minutes 10 seconds</li>
       <li><strong>Net Transit Delay Reduction:</strong> <strong>39.3% reduction</strong> (saving critical minutes for patient survival).</li>
     </ul>
+
+    <div style="margin: 14px 0;">
+      <img src="assets/infographic_emergency_green_wave.png" alt="Guwahati Corridors and 108 Emergency Green Wave Preemption Framework" style="width: 100%; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 14px rgba(0,0,0,0.06);" />
+      <div style="font-size: 9px; color: #64748b; text-align: center; margin-top: 5px; font-weight: 600;">Figure C: Synchronized 108 Emergency Ambulance Green Wave Corridor (Jalukbari to GMCH)</div>
+    </div>
   </div>
 
   <!-- PAGE 3: BUDGET ALLOCATION & GOVERNANCE -->
@@ -352,6 +342,11 @@
         </tr>
       </tbody>
     </table>
+
+    <div style="margin: 14px 0;">
+      <img src="assets/infographic_budget_and_roadmap.png" alt="Budget Allocation and 24-Week Implementation Roadmap" style="width: 100%; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 14px rgba(0,0,0,0.06);" />
+      <div style="font-size: 9px; color: #64748b; text-align: center; margin-top: 5px; font-weight: 600;">Figure D: ₹40.00 Lakhs Budget Allocation Donut &amp; 24-Week Implementation Roadmap</div>
+    </div>
 
     <h2>6. Administrative Controls & Security Compliance</h2>
     <p>

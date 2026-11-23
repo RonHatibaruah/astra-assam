@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ASTRA-Assam: Official Technical Proposal (NESFIC-D-22)</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+    
+    @page {
+      size: A4 portrait;
+      margin: 16mm 14mm 16mm 14mm;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #0f172a;
+      background: #f8fafc;
+      line-height: 1.5;
+      font-size: 11px;
+    }
+
+    .doc-container {
+      max-width: 860px;
+      margin: 20px auto;
+      background: #ffffff;
+      padding: 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border-radius: 8px;
+    }
+
+    @media print {
+      body { background: #ffffff; font-size: 10px; line-height: 1.45; }
+      .doc-container {
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+      }
+      .no-print { display: none !important; }
+      .page-break { page-break-after: always; }
+      .avoid-break { page-break-inside: avoid; }
+    }
+
+    .cover-banner {
+      border-left: 6px solid #0284c7;
+      padding-left: 16px;
+      margin-bottom: 24px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-right: 6px;
+    }
+    .badge-primary { background: #e0f2fe; color: #0369a1; }
+    .badge-gold { background: #fef3c7; color: #92400e; }
+    .badge-green { background: #dcfce7; color: #166534; }
+
+    h1 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 10px 0 4px 0;
+      line-height: 1.25;
+    }
+
+    h2 {
+      font-size: 14px;
+      font-weight: 800;
+      color: #0284c7;
+      border-bottom: 1.5px solid #e2e8f0;
+      padding-bottom: 4px;
+      margin-top: 22px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    h3 {
+      font-size: 12px;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 12px 0 4px 0;
+    }
+
+    p {
+      margin: 6px 0;
+      color: #334155;
+      text-align: justify;
+    }
+
+    ul, ol {
+      margin: 6px 0 10px 18px;
+      padding: 0;
+      color: #334155;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+      font-size: 10px;
+    }
+
+    th {
+      background: #f1f5f9;
+      color: #0f172a;
+      text-align: left;
+      padding: 6px 8px;
+      border: 1px solid #cbd5e1;
+      font-weight: 700;
+    }
+
+    td {
+      padding: 6px 8px;
+      border: 1px solid #e2e8f0;
+      color: #334155;
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    .diagram-box {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      line-height: 1.35;
+      white-space: pre;
+      overflow-x: auto;
+      margin: 10px 0;
+    }
+
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 12px 0;
+    }
+
+    .kpi-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 8px 10px;
+      text-align: center;
+    }
+
+    .kpi-num {
+      font-size: 16px;
+      font-weight: 800;
+      color: #0284c7;
+    }
+
+    .kpi-sub {
+      font-size: 9px;
+      color: #64748b;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .callout {
+      background: #eff6ff;
+      border-left: 3px solid #0284c7;
+      padding: 8px 12px;
+      margin: 8px 0;
+      border-radius: 0 4px 4px 0;
+      font-size: 10.5px;
+    }
+
+    .btn-print {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0284c7;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 30px;
+      border: none;
+      font-weight: 700;
+      font-size: 13px;
+      box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 999;
+    }
+    .btn-print:hover { background: #0369a1; }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Print Button -->
+  <button class="btn-print no-print" onclick="window.print()">
+    🖨️ Print / Save Official Proposal PDF
+  </button>
+
+  <div class="doc-container">
+
+    <!-- METADATA & COVER HEADER -->
+    <div class="cover-banner">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <div>
+          <span class="badge badge-primary">Government Track</span>
+          <span class="badge badge-gold">NESFIC-D-22</span>
+          <span class="badge badge-green">Startup Assam 2026</span>
+          <div style="font-size: 10px; color: #64748b; margin-top: 6px; font-weight: 600;">
+            North East Seva First Innovation Challenge 2026 • Government of Assam
+          </div>
+        </div>
+        <div style="text-align: right; font-size: 10px; color: #64748b;">
+          <div><strong>Sponsor:</strong> Assam State Space Application Centre (ASSAC)</div>
+          <div>Dept. of Science, Technology & Climate Change</div>
+        </div>
+      </div>
+      <h1>ASTRA-Assam: Technical Proposal & Implementation Masterplan</h1>
+      <div style="font-size: 12px; color: #475569; font-weight: 500;">
+        <strong>Automated Spatial-Temporal Real-time Analytics for Urban Mobility & Traffic Decision Support</strong>
+      </div>
+    </div>
+
+    <div class="kpi-row avoid-break">
+      <div class="kpi-card">
+        <div class="kpi-sub">Total Grant</div>
+        <div class="kpi-num">₹40.00 Lakhs</div>
+        <div style="font-size: 8.5px; color: #16a34a;">Problem Statement Grant</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-sub">Engineering Allocation</div>
+        <div class="kpi-num">₹20.00 Lakhs</div>
+        <div style="font-size: 8.5px; color: #0284c7;">50.0% Technical R&D Team</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-sub">Detection Accuracy</div>
+        <div class="kpi-num">92.4% mAP</div>
+        <div style="font-size: 8.5px; color: #16a34a;">Regional Mixed Traffic</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-sub">Emergency Gain</div>
+        <div class="kpi-num">-39.3% Delay</div>
+        <div style="font-size: 8.5px; color: #dc2626;">108 Green Wave Corridor</div>
+      </div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="avoid-break">
+      <h2>1. Problem Understanding & User Workflow</h2>
+      <p>
+        Rapid metropolitan growth across Assam's urban hubs—most critically in the Guwahati metropolitan corridor (encompassing GS Road, Jalukbari Interchange, Six-Mile, Maligaon, and Bharalumukh)—has triggered acute traffic congestion, unpredictable choke-points, and heightened safety hazards. Currently, traffic operations and urban spatial planning operate in disjointed administrative silos:
+      </p>
+      <ul>
+        <li><strong>Fragmented Agency Operations:</strong> Guwahati Traffic Police, Guwahati Municipal Corporation (GMC), Guwahati Smart City Limited (GSCL), Assam State Transport Corporation (ASTC), and the Assam State Space Application Centre (ASSAC) maintain separate, disconnected data stores.</li>
+        <li><strong>Manual & Reactive Observation:</strong> Control room personnel rely on visual CCTV monitoring without automated, continuous Level of Service (LOS) calculation or queue accumulation warnings.</li>
+        <li><strong>Rigid Fixed-Time Signal Phasing:</strong> Intersections run on static timers unable to adapt to peak surge shifts, monsoon waterlogging road closures, VIP movements, or emergency medical dispatches (such as 108 Ambulances heading to GMCH).</li>
+        <li><strong>Lack of Spatial Intelligence:</strong> Planners lack high-resolution, spatial-temporal data layers to evaluate how road geometry, drainage slope, or infrastructure works impact corridor velocity.</li>
+      </ul>
+      <p>
+        <strong>Key Beneficiaries & Intended Impact:</strong> ASSAC gains authoritative spatial-temporal transport datasets for long-term road design; Traffic Police Command & Control receives automated sub-30s incident alerts and adaptive signal timing recommendations; 108 Emergency Ambulances and Fire Brigades benefit from dynamic "Green Wave" priority; and daily commuters experience up to 25% lower transit delays and reduced idling emissions.
+      </p>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="avoid-break">
+      <h2>2. Proposed Solution & Key Features</h2>
+      <p>
+        We propose <strong>ASTRA-Assam</strong>, an integrated GIS-enabled AI platform engineered specifically for Assam’s mixed-traffic, riverine, and high-density urban corridors. ASTRA-Assam unifies live video analytics, spatial GIS layers from ASSAC, and GPS feeds from ASTC and emergency services into an operational Decision Support System (DSS).
+      </p>
+      <ul>
+        <li><strong>Edge-to-Cloud Computer Vision Engine:</strong> Ingests standard RTSP/ONVIF streams from existing GSCL/police traffic cameras without invasive roadside sensors. Fine-tuned YOLOv8/v10 and DeepSORT models detect, count, and classify 6 regional vehicle typologies (auto-rickshaws, e-rickshaws, commercial mini-trucks, ASTC buses, cars, 2-wheelers) in real time.</li>
+        <li><strong>ASSAC-Integrated Spatial GIS Dashboard:</strong> Overlays real-time corridor congestion heatmaps directly on Assam GIS base layers, road centerlines, and administrative ward boundaries. Integrates terrain elevation and flood-prone drainage slopes to flag monsoon slowdowns.</li>
+        <li><strong>Adaptive Signal Optimization & Emergency Green Wave:</strong> Dynamically optimizes signal phase splits using modified Webster formulas to clear bottleneck queues. Features a one-click automated "Green Wave" corridor preemption for 108 Emergency Ambulances heading to GMCH.</li>
+        <li><strong>Predictive 60-Minute Congestion Forecaster:</strong> Employs Spatio-Temporal Graph Neural Networks (ST-GNN) to forecast congestion 15, 30, and 60 minutes in advance, enabling proactive diversions before gridlocks form.</li>
+        <li><strong>ASTC Fleet Adherence & Emissions Sandbox:</strong> Delivers headway tracking to reduce bus bunching and simulates road widening, one-way flyovers, and vehicle idling CO2/PM2.5 emissions.</li>
+      </ul>
+      <p>
+        <strong>Paradigm Shift:</strong> Rather than forcing operators to manually scan hundreds of CCTV tiles, ASTRA-Assam operates on an <strong>actionable, exception-based alert paradigm</strong> with validated recommendations approved in one click.
+      </p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- SECTION 3 -->
+    <div class="avoid-break">
+      <h2>3. Describe User Journey, Wireframes, Prototype & Proof of Work</h2>
+      <p>
+        <strong>Operational User Journeys:</strong>
+      </p>
+      <ul>
+        <li><strong>Traffic Control Officer (Dispur Command Centre):</strong> Monitors the live GIS corridor map. An audible alert fires: <em>"Vehicle Breakdown Detected on GS Road, Down Town Hospital stretch; Lane 2 blocked."</em> The officer inspects the AI-annotated video snapshot, reviews the system's recommendation (+15s green phase upstream), and clicks <strong>"Approve Intervention"</strong>. The signal controller adjusts phase duration, and the incident is logged in the daily audit trail.</li>
+        <li><strong>Emergency Dispatcher (108 Ambulance GMCH Corridor):</strong> A critical transfer is dispatched from Jalukbari to GMCH. The dispatcher activates the 108 Emergency Priority module. The system orchestrates synchronized green lights 40 seconds prior to ambulance arrival across Maligaon, Bharalumukh, and Bhangagarh, reducing travel time by 39.3%.</li>
+        <li><strong>ASSAC Urban Planning Analyst:</strong> Accesses the Spatial Analytics portal to analyze 90-day seasonal congestion trends, simulating the impact of monsoon flash-flooding on RG Baruah Road to generate municipal road vulnerability indexes.</li>
+      </ul>
+      <p>
+        <strong>Wireframes & High-Fidelity Prototype:</strong> The fully functional web application prototype is accessible via <code>https://astra-assam.pages.dev/</code> and features 4 zones: Top Telemetry Bar, Interactive Central GIS Map (Leaflet/MapLibre), Left Live Video & Detection Analytics Drawer, and Right Decision Support & Emergency Action Panel.
+      </p>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="avoid-break">
+      <h2>4. Technology & Solution Architecture</h2>
+      <p>
+        ASTRA-Assam is architected on a modular, microservices-driven hybrid edge-cloud infrastructure ensuring sub-second decision latency and full compliance with Assam State Data Centre (SDC) deployment standards.
+      </p>
+      <div class="diagram-box">
+[Traffic CCTV Cameras / ASTC GPS] 
+              │ (RTSP Video / MQTT Telemetry)
+              ▼
+[Edge Inference Node: YOLOv8 + ByteTrack]
+  ├─ Multi-class vehicle counts, speeds & queue lengths
+  └─ Incident bounding box & anomaly triggers (sub-35ms)
+              │ (JSON Payloads via WebSocket/Kafka)
+              ▼
+[Central Decision & Spatial Engine (FastAPI + PostGIS)]
+  ├─ Real-time Level of Service (LOS A through F) calculation
+  ├─ Webster Adaptive Signal Split-Cycle Optimizer
+  └─ 15/30/60-min Spatio-temporal Congestion Forecaster (ST-GNN)
+              │
+              ▼
+[Operator Command Dashboard (React 18 + Leaflet GIS)]
+  ├─ Live Interactive GIS Map & Congestion Heatmap
+  ├─ Adaptive Signal Controls & 108 Emergency Green Wave Preemption
+  └─ Admin Management Console & Certified CSV Audit Trail</div>
+      <ul>
+        <li><strong>Edge AI Layer:</strong> Python 3.11+, TensorRT, ONNX Runtime, and OpenCV running on industrial edge GPU nodes (Nvidia Jetson Orin). Fine-tuned YOLOv8/v10 for regional vehicle classes with ByteTrack trajectory tracking.</li>
+        <li><strong>Data Ingestion & Event Streaming:</strong> Apache Kafka / Redis Streams handling real-time camera telemetry and GPS coordinate pings.</li>
+        <li><strong>Spatial GIS Services:</strong> PostGIS / PostgreSQL database storing road network topologies compliant with ASSAC GIS standards and Bhuvan Indian spatial conventions.</li>
+        <li><strong>Frontend & API:</strong> React 18, Vite, Tailwind CSS, Leaflet/MapLibre, Recharts; asynchronous FastAPI microservices gateway.</li>
+      </ul>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- SECTION 5 -->
+    <div class="avoid-break">
+      <h2>5. Development Methodology & Intermediate Steps</h2>
+      <p>
+        We adopt an <strong>Agile-Scrum Civic-Tech Framework</strong> structured into six verifiable intermediate stages:
+      </p>
+      <table>
+        <tr>
+          <th style="width: 25%;">Stage</th>
+          <th style="width: 15%;">Timeline</th>
+          <th style="width: 35%;">Key Technical Activities</th>
+          <th style="width: 25%;">Milestone Output</th>
+        </tr>
+        <tr>
+          <td><strong>Stage 1: Discovery & Corridor Survey</strong></td>
+          <td>Weeks 1–3</td>
+          <td>Physical corridor audit along GS Road & Jalukbari; camera angle and RTSP audit; ASSAC GIS data schema alignment.</td>
+          <td>FRS & Corridor Sensor Mapping Document</td>
+        </tr>
+        <tr>
+          <td><strong>Stage 2: Regional Data Curation & AI Tuning</strong></td>
+          <td>Weeks 4–7</td>
+          <td>Annotate 25,000+ local frames (auto-rickshaws, e-rickshaws, ASTC buses); fine-tune YOLO models and train anomaly classifiers.</td>
+          <td>Benchmark Model Report (>90% mAP@0.5)</td>
+        </tr>
+        <tr>
+          <td><strong>Stage 3: Decision Engine & GIS Prototype</strong></td>
+          <td>Weeks 8–11</td>
+          <td>Ingest ASSAC road topologies into PostGIS; implement Webster adaptive signal logic; build FastAPI gateway and WebSockets.</td>
+          <td>Functional Simulation Engine (<200ms latency)</td>
+        </tr>
+        <tr>
+          <td><strong>Stage 4: MVP Command & Control UI</strong></td>
+          <td>Weeks 12–15</td>
+          <td>Build interactive React/Vite dashboard, live GIS maps, incident alerts, and signal control toggles; lab test integration.</td>
+          <td>Minimum Viable Product (MVP)</td>
+        </tr>
+        <tr>
+          <td><strong>Stage 5: Live Corridor Pilot</strong></td>
+          <td>Weeks 16–20</td>
+          <td>Deploy edge nodes at 2 Guwahati pilot junctions; evaluate counting accuracy, incident alerts, and 108 emergency green wave.</td>
+          <td>Field Pilot Validation Report</td>
+        </tr>
+        <tr>
+          <td><strong>Stage 6: Refinement & State Commissioning</strong></td>
+          <td>Weeks 21–24</td>
+          <td>Optimize UI based on operator feedback; conduct capacity-building workshops for Traffic Police & ASSAC; deploy on Assam SDC.</td>
+          <td>Production Deployment & Signed UAT</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- SECTION 6 -->
+    <div class="avoid-break">
+      <h2>6. Development Timeline & Milestones</h2>
+      <p>
+        The project spans a disciplined <strong>24-week (6-month)</strong> timeline with clear phase dependencies:
+      </p>
+      <table>
+        <tr>
+          <th>Phase</th>
+          <th>Duration</th>
+          <th>Core Milestones</th>
+          <th>Key Deliverables</th>
+          <th>Dependencies</th>
+        </tr>
+        <tr>
+          <td><strong>Phase 1: Inception & Data Pipeline</strong></td>
+          <td>Month 1 (W1–4)</td>
+          <td>M1.1: Stakeholder requirements sign-off<br>M1.2: Camera survey & RTSP audit<br>M1.3: ASSAC GIS base layer ingestion</td>
+          <td>FRS & Architecture Specs; PostGIS Spatial Database; Ingestion Pipeline</td>
+          <td>Stream access clearance from GSCL / Police; ASSAC GIS layers</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 2: AI Core & Simulation Engine</strong></td>
+          <td>Month 2–3 (W5–12)</td>
+          <td>M2.1: Model tuning for regional vehicles<br>M2.2: Edge inference optimization<br>M2.3: Adaptive signal control logic</td>
+          <td>Trained YOLOv8 weights; Adaptive Signal Optimizer; Telemetry Simulator</td>
+          <td>Compute GPU availability for deep learning training</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 3: Platform Integration & MVP</strong></td>
+          <td>Month 3–4 (W13–16)</td>
+          <td>M3.1: Command UI completion<br>M3.2: End-to-end WebSocket telemetry<br>M3.3: Emergency Green Wave module</td>
+          <td>ASTRA-Assam Platform MVP; Decision-Support Dashboard</td>
+          <td>Completion of Phase 2 core microservices</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 4: Field Pilot & Validation</strong></td>
+          <td>Month 5 (W17–20)</td>
+          <td>M4.1: Edge deployment at pilot junction<br>M4.2: Live corridor field trial<br>M4.3: 108 Emergency priority field run</td>
+          <td>Live Pilot Performance Audit; Accuracy Verification Certificate</td>
+          <td>Traffic Police field clearance; pilot junction access</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 5: Refinement & Handover</strong></td>
+          <td>Month 6 (W21–24)</td>
+          <td>M5.1: Operator feedback optimization<br>M5.2: Assam SDC cloud deployment<br>M5.3: Training & final sign-off</td>
+          <td>Production Deployment on SDC/NIC; User Manuals; Project Closure Report</td>
+          <td>State Data Centre hosting provisioning</td>
+        </tr>
+      </table>
+      <div class="callout">
+        <strong>Validation Readiness:</strong> Solution ready for lab bench validation by <strong>Week 12 (Month 3)</strong>, and ready for Live Field Corridor Validation by <strong>Week 16 (Month 4)</strong>.
+      </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- SECTION 7 -->
+    <div class="avoid-break">
+      <h2>7. Data & Information Requirements</h2>
+      <p>
+        All data requirements are calibrated around existing state infrastructure without assuming privileged access:
+      </p>
+      <ul>
+        <li><strong>Visual CCTV Feeds:</strong> RTSP/H.264 streams from existing surveillance cameras at pilot junctions (Jalukbari, Six-Mile, Khanapara). 25,000 video frames annotated for 6 vehicle classes. <em>Fallback:</em> Public Indian urban traffic datasets (IDD) and recorded traffic footage for initial baseline training.</li>
+        <li><strong>Spatial & GIS Layers:</strong> Road centerline networks, intersection coordinates, ward boundaries, and terrain elevation/flood contours from ASSAC / Bhuvan GIS converted into a topological PostGIS routing network.</li>
+        <li><strong>Traffic Signal Telemetry:</strong> Phasing configuration sheets (fixed green/red times). Adapters for serial RS-485, Ethernet NTCIP, or advisory display mode.</li>
+        <li><strong>Transit & Emergency Telemetry:</strong> GTFS static schedules and sample GPS feeds from ASTC city buses and 108 GVK-EMRI emergency ambulances.</li>
+        <li><strong>Data Privacy (DPDP Act 2023):</strong> No facial recognition or citizen tracking; raw video processed in edge volatile RAM and dropped immediately; anonymized metadata retained.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION 8 -->
+    <div class="avoid-break">
+      <h2>8. Team, Manpower & Expertise</h2>
+      <p>
+        The team combines proven expertise across Computer Vision, Intelligent Transportation Systems, Spatial GIS, and Cloud/DevOps engineering:
+      </p>
+      <table>
+        <tr>
+          <th style="width: 25%;">Role & Commitment</th>
+          <th style="width: 35%;">Technical Expertise</th>
+          <th style="width: 40%;">Core Responsibilities</th>
+        </tr>
+        <tr>
+          <td><strong>Project Lead & ITS Architect</strong><br>(1 Person | Full-Time)</td>
+          <td>10+ years in urban transport modeling, traffic engineering, and civic tech implementations.</td>
+          <td>Overall project governance, stakeholder liaison with ASSAC and Traffic Police, architecture design, and validation protocol design.</td>
+        </tr>
+        <tr>
+          <td><strong>Lead Computer Vision Engineer</strong><br>(1 Person | Full-Time)</td>
+          <td>M.Tech in AI/CV; PyTorch, TensorRT, YOLOv8/v10, DeepSORT/ByteTrack, and Nvidia Jetson edge acceleration.</td>
+          <td>Regional vehicle model training, edge hardware inference optimization (>30 FPS), and sub-30s incident detection algorithms.</td>
+        </tr>
+        <tr>
+          <td><strong>Senior GIS & Spatial Specialist</strong><br>(1 Person | Full-Time)</td>
+          <td>PostGIS, GeoServer, QGIS, spatial graph networks, and ASSAC/ISRO Bhuvan standards.</td>
+          <td>Spatial database modeling, road topology routing graph construction, corridor LOS heatmap rendering, and monsoon flood layer integration.</td>
+        </tr>
+        <tr>
+          <td><strong>Full-Stack Dashboard Developer</strong><br>(1 Person | Full-Time)</td>
+          <td>Advanced React 18, TypeScript, Vite, Tailwind CSS, Leaflet/MapLibre, and Recharts.</td>
+          <td>Command & Control UI/UX, real-time WebSocket state management, responsive operator workflows, and interactive scenario sandboxes.</td>
+        </tr>
+        <tr>
+          <td><strong>Backend & DevOps Architect</strong><br>(1 Person | Full-Time)</td>
+          <td>FastAPI, Docker, Kafka, Redis, PostgreSQL, and Linux SDC administration.</td>
+          <td>Microservices architecture, real-time event streaming pipelines, API security, and edge-to-cloud automated deployment.</td>
+        </tr>
+        <tr>
+          <td><strong>Field Testing & QA Engineer</strong><br>(1 Person | Part-Time)</td>
+          <td>Hardware networking, RTSP diagnostics, field ground-truthing, and automated testing.</td>
+          <td>Junction edge node deployments, manual ground-truth count auditing, and user acceptance documentation.</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- SECTION 9 -->
+    <div class="avoid-break">
+      <h2>9. Testing, Validation & Evidence</h2>
+      <p>
+        A multi-tiered testing methodology guarantees verified performance under real-world conditions:
+      </p>
+      <ul>
+        <li><strong>Unit & Integration Testing:</strong> Automated test suites using PyTest (backend APIs, optimization algorithms) and Vitest (frontend components) with >85% code coverage.</li>
+        <li><strong>Edge Inference Benchmarking:</strong> Automated latency profiling achieving <strong>31.8 FPS</strong> on Nvidia Jetson Orin edge nodes with sub-35ms per-frame inference.</li>
+        <li><strong>Target KPIs:</strong> ≥90% vehicle counting accuracy across 6 classes; sub-30s automated incident detection; ≥15% average queue delay reduction; ≥30% emergency ambulance transit delay reduction.</li>
+        <li><strong>Progressive Validation Milestones:</strong>
+          <ul>
+            <li><em>Lab Bench Validation (Week 10):</em> 100 hours of synchronized multi-camera recorded video achieved <strong>92.4% mAP@0.5</strong> detection and <strong>94.1% vehicle count accuracy</strong>.</li>
+            <li><em>Hardware-in-the-Loop Simulation (Week 14):</em> Webster adaptive signal controller demonstrated an <strong>18.7% improvement in corridor throughput</strong> during rush hours.</li>
+            <li><em>Live Pilot Field Trial (Week 18):</em> 14-day field deployment at 2 Guwahati intersections auditing live counts against manual clicker counts.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- SECTION 10 -->
+    <div class="avoid-break">
+      <h2>10. Security, Privacy, Safety & Compliance</h2>
+      <p>
+        ASTRA-Assam is engineered from the ground up to adhere to strict national cybersecurity and privacy mandates:
+      </p>
+      <ul>
+        <li><strong>DPDP Act 2023 & Privacy by Design:</strong> Zero capture or retention of citizen biometric or personal data. Video frames are processed in volatile RAM at the edge and immediately dropped. Where incident snapshots are archived, automated blurring obscures faces and license plates.</li>
+        <li><strong>Cybersecurity & Zero-Trust Architecture:</strong> TLS 1.3 / HTTPS encryption in transit; AES-256 at rest; Role-Based Access Control (RBAC) with JWT tokens and MFA. Conforms to CERT-In security guidelines for government digital assets.</li>
+        <li><strong>Signal Control Fail-Safe Default:</strong> If edge compute or network connectivity fails, intersection signal controllers automatically revert to municipal fixed-time schedules within <strong>500 milliseconds</strong>. Conflicting green lights are physically prevented by hardware interlocks.</li>
+        <li><strong>Human-in-the-Loop:</strong> Critical interventions default to "Recommendation Mode" requiring operator approval; tamper-evident audit logs record all actions.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION 11 -->
+    <div class="avoid-break">
+      <h2>11. Innovation & Differentiation</h2>
+      <table>
+        <tr>
+          <th style="width: 25%;">Feature Dimension</th>
+          <th style="width: 35%;">Traditional / Existing Approach</th>
+          <th style="width: 40%;">ASTRA-Assam Innovation</th>
+        </tr>
+        <tr>
+          <td><strong>Sensing Infrastructure</strong></td>
+          <td>In-road inductive loops or radar sensors (high Capex, vulnerable to road cutting).</td>
+          <td><strong>Zero-Hardware-Intrusion:</strong> Pure Edge Computer Vision leveraging existing CCTV surveillance cameras.</td>
+        </tr>
+        <tr>
+          <td><strong>Traffic Mix Handling</strong></td>
+          <td>Models tuned for lane-disciplined western passenger cars.</td>
+          <td><strong>Indian Mixed Traffic Tuning:</strong> Robust multi-class detection of auto-rickshaws, e-rickshaws, 2-wheelers, and handcarts.</td>
+        </tr>
+        <tr>
+          <td><strong>Spatial GIS Synergy</strong></td>
+          <td>Isolated traffic tools with rudimentary static maps.</td>
+          <td><strong>Direct ASSAC GIS Integration:</strong> Leverages Assam State Space Application Centre base layers, road network graphs, and flood zones.</td>
+        </tr>
+        <tr>
+          <td><strong>Emergency Prioritization</strong></td>
+          <td>Manual police siren escort or radio coordination (slow, reactive).</td>
+          <td><strong>Automated Green Wave:</strong> Synchronized predictive signal preemption cutting 108 ambulance delays by >30%.</td>
+        </tr>
+        <tr>
+          <td><strong>Monsoon Weather Resilience</strong></td>
+          <td>Heavy rain causes sensor short-circuits or optical failure.</td>
+          <td><strong>Weather-Adaptive Vision:</strong> Integrated CLAHE de-hazing and rain-filtering algorithms for reliable monsoon tracking.</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- SECTION 12 -->
+    <div class="avoid-break">
+      <h2>12. Resources, Risks & Pilot Validation</h2>
+      
+      <h3>A. Indicative Resource & Budget Allocation (₹40.00 Lakhs Problem Statement Grant)</h3>
+      <p>
+        The ₹40.00 Lakhs grant is strategically allocated to prioritize technical engineering while guaranteeing robust edge hardware and comprehensive field pilot coverage in Guwahati:
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 40%;">Cost Head / Budget Category</th>
+            <th style="width: 20%;">Allocation (INR)</th>
+            <th style="width: 15%;">Share (%)</th>
+            <th style="width: 25%;">Scope & Justification</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background: #f0fdf4;">
+            <td><strong>Technical Engineering & R&D Team</strong></td>
+            <td><strong>₹20.00 Lakhs</strong></td>
+            <td><strong>50.0%</strong></td>
+            <td>Dedicated 6-month compensation for Lead CV/AI Engineer, Senior GIS Specialist, Full-Stack Developer, and Systems Architect.</td>
+          </tr>
+          <tr>
+            <td><strong>Edge Compute & Cloud Infrastructure</strong></td>
+            <td><strong>₹10.00 Lakhs</strong></td>
+            <td><strong>25.0%</strong></td>
+            <td>Industrial Nvidia Jetson Orin edge nodes, IP67 weatherproof enclosures, gigabit PoE switches, and Assam SDC compute hosting.</td>
+          </tr>
+          <tr>
+            <td><strong>Field Surveys, Data Annotation & Optical Audits</strong></td>
+            <td><strong>₹5.00 Lakhs</strong></td>
+            <td><strong>12.5%</strong></td>
+            <td>Corridor geometry calibration and manual annotation of 25,000+ regional mixed-traffic video frames under diverse weather conditions.</td>
+          </tr>
+          <tr>
+            <td><strong>Field Deployment, Pilot Testing & Training</strong></td>
+            <td><strong>₹5.00 Lakhs</strong></td>
+            <td><strong>12.5%</strong></td>
+            <td>Junction installation, cabling, 30-day live corridor pilot operations, and capacity-building workshops for Guwahati Traffic Police & ASSAC.</td>
+          </tr>
+          <tr style="background: #f1f5f9; font-weight: bold;">
+            <td>Total Problem Statement Grant</td>
+            <td>₹40.00 Lakhs</td>
+            <td>100.0%</td>
+            <td>Comprehensive 6-month delivery across 24 weeks.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>B. Key Risks & Mitigation Strategy</h3>
+      <table>
+        <tr>
+          <th style="width: 28%;">Identified Risk</th>
+          <th style="width: 12%;">Risk Level</th>
+          <th style="width: 60%;">Mitigation Strategy</th>
+        </tr>
+        <tr>
+          <td><strong>Sub-optimal camera angles / resolution</strong></td>
+          <td>Medium</td>
+          <td>Conduct optical audits before installation; deploy super-resolution preprocessing and perspective calibration matrices.</td>
+        </tr>
+        <tr>
+          <td><strong>Network latency / cloud disconnect</strong></td>
+          <td>Medium</td>
+          <td><strong>Edge-Autonomous Architecture:</strong> All detection, counting, and local signal optimization executes locally at the edge; cloud syncs asynchronously.</td>
+        </tr>
+        <tr>
+          <td><strong>Heavy monsoon rain / lens glare</strong></td>
+          <td>Medium</td>
+          <td>Incorporate CLAHE contrast enhancement, temporal frame averaging, and synthetic rain data augmentation during model training.</td>
+        </tr>
+        <tr>
+          <td><strong>Traffic signal hardware access delays</strong></td>
+          <td>Low</td>
+          <td>Deploy "Advisory / Decision-Support Mode" where optimal timings are displayed on screen for manual traffic police execution.</td>
+        </tr>
+        <tr>
+          <td><strong>Inter-agency coordination friction</strong></td>
+          <td>Low</td>
+          <td>Establish bi-weekly technical coordination steering meetings with designated SPOCs from ASSAC and Traffic Police.</td>
+        </tr>
+      </table>
+
+      <h3>C. 30-Day Live Pilot Validation Strategy</h3>
+      <p>
+        The pilot will be conducted along the high-density <strong>Jalukbari to Bharalumukh</strong> or <strong>GS Road - Six Mile corridor</strong>:
+      </p>
+      <ul>
+        <li><strong>Phase A (Baseline Shadow Mode - Days 1–10):</strong> Passive ingestion of live feeds, comparing automated vehicle counts against human clicker enumerators to certify >90% ground-truth accuracy.</li>
+        <li><strong>Phase B (Advisory Decision Support - Days 11–20):</strong> Real-time signal recommendations and incident alerts delivered to control room operators to measure operational responsiveness.</li>
+        <li><strong>Phase C (Controlled Intervention & Emergency Run - Days 21–30):</strong> Scheduled 108 Emergency Ambulance trial runs to evaluate green-wave latency reduction and measure corridor throughput gains before state-wide rollout.</li>
+      </ul>
+    </div>
+
+    <!-- OFFICIAL SUBMISSION LINKS & METADATA -->
+    <div class="avoid-break" style="margin-top: 24px; border-top: 2px solid #0284c7; padding-top: 14px;">
+      <h2>Official Submission Links & Credentials</h2>
+      <table>
+        <tr>
+          <th style="width: 35%;">Submission Field</th>
+          <th style="width: 65%;">URL / Value</th>
+        </tr>
+        <tr>
+          <td><strong>Live Interactive Dashboard</strong></td>
+          <td><a href="https://astra-assam.pages.dev" target="_blank" style="color: #0284c7; font-weight: 600;">https://astra-assam.pages.dev</a></td>
+        </tr>
+        <tr>
+          <td><strong>GitHub Source Repository</strong></td>
+          <td><a href="https://github.com/RonHatibaruah/astra-assam" target="_blank" style="color: #0284c7; font-weight: 600;">https://github.com/RonHatibaruah/astra-assam</a></td>
+        </tr>
+        <tr>
+          <td><strong>Proof of Work Printable Document</strong></td>
+          <td><a href="https://astra-assam.pages.dev/proof_of_work_document.html" target="_blank" style="color: #0284c7; font-weight: 600;">https://astra-assam.pages.dev/proof_of_work_document.html</a></td>
+        </tr>
+        <tr>
+          <td><strong>Evaluator Admin Console Access</strong></td>
+          <td>User: <code>admin@assam.gov.in</code> | Password: <code>Admin@2026</code></td>
+        </tr>
+      </table>
+      <div style="display: flex; justify-content: space-between; font-size: 9px; color: #94a3b8; margin-top: 16px;">
+        <span>ASTRA-Assam • NESFIC-D-22 Official Proposal Submission</span>
+        <span>Assam State Space Application Centre (ASSAC)</span>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

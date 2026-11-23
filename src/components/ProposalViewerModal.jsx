@@ -404,12 +404,32 @@ Portal Submission URL Fields:
               </p>
             </div>
           </div>
-          <button
-            onClick={onClose}
-            className="p-1.5 rounded-lg bg-slate-100 text-slate-500 hover:text-slate-900 hover:bg-slate-200 transition-all cursor-pointer"
-          >
-            <X className="w-5 h-5" />
-          </button>
+          <div className="flex items-center gap-2">
+            <a
+              href="/ASTRA_Assam_NESFIC_D22_Proposal.pdf"
+              download="ASTRA_Assam_NESFIC_D22_Proposal.pdf"
+              className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition-all cursor-pointer"
+            >
+              <Download className="w-4 h-4" />
+              <span>Download Proposal PDF</span>
+            </a>
+            <a
+              href="/proposal_document.html"
+              target="_blank"
+              rel="noreferrer"
+              className="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold flex items-center gap-1 border border-slate-300 transition-all cursor-pointer"
+              title="Open Printable HTML"
+            >
+              <ExternalLink className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Print View</span>
+            </a>
+            <button
+              onClick={onClose}
+              className="p-1.5 rounded-lg bg-slate-100 text-slate-500 hover:text-slate-900 hover:bg-slate-200 transition-all cursor-pointer"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
         </div>
 
         {/* Modal Body: Left Section List + Right Content Viewer */}

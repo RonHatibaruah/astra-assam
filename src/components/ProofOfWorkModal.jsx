@@ -28,17 +28,25 @@ export default function ProofOfWorkModal({ isOpen, onClose }) {
 
           <div className="flex items-center space-x-2">
             <a
+              href="/ASTRA_Assam_NESFIC_D22_Proof_of_Work.pdf"
+              download="ASTRA_Assam_NESFIC_D22_Proof_of_Work.pdf"
+              className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold flex items-center gap-1.5 shadow transition-all cursor-pointer"
+            >
+              <Download className="w-4 h-4" />
+              <span>Download PDF</span>
+            </a>
+            <a
               href="/proof_of_work_document.html"
               target="_blank"
               rel="noreferrer"
               className="px-3 py-1.5 rounded-lg bg-cyan-700 hover:bg-cyan-600 text-white text-xs font-bold flex items-center gap-1.5 shadow transition-all cursor-pointer"
             >
               <Printer className="w-4 h-4" />
-              <span>Print / Save as PDF</span>
+              <span>Print View</span>
             </a>
             <button
               onClick={onClose}
-              className="p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-all"
+              className="p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-all cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>

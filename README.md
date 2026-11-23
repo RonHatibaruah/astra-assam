@@ -3,8 +3,11 @@
 [![NESFIC 2026](https://img.shields.io/badge/NESFIC%202026-Government%20Track-blue.svg)](https://startup.assam.gov.in/nesfic26/problem-statements/nesfic-d-22)
 [![Challenge ID](https://img.shields.io/badge/Challenge-NESFIC--D--22-emerald.svg)](https://startup.assam.gov.in/nesfic26/problem-statements/nesfic-d-22)
 [![Department](https://img.shields.io/badge/Sponsor-ASSAC%20%7C%20Govt%20of%20Assam-cyan.svg)](https://startup.assam.gov.in/)
+[![Cloudflare Deployment](https://img.shields.io/badge/Live%20Demo-astra--assam.pages.dev-orange.svg)](https://astra-assam.pages.dev)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+> **Live Production URL:** [https://astra-assam.pages.dev](https://astra-assam.pages.dev)  
+> **Printable Proof of Work PDF:** [https://astra-assam.pages.dev/proof_of_work_document.html](https://astra-assam.pages.dev/proof_of_work_document.html)  
 > **Official Submission for NESFIC-D-22 (North East Seva First Innovation Challenge 2026)**  
 > Sponsored by the **Assam State Space Application Centre (ASSAC)** and the **Department of Science, Technology & Climate Change, Government of Assam**.
 

@@ -2,7 +2,29 @@ import React, { useState } from 'react';
 import { MapContainer, TileLayer, Polyline, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import { CORRIDORS, INTERSECTIONS, ASTC_BUS_FLEET, GUWAHATI_CENTER } from '../data/corridors';
-import { Layers, Ambulance } from 'lucide-react';
+import { Layers, Ambulance, Globe } from 'lucide-react';
+
+// Free Tile Providers (100% Free, No API Key Required)
+const BASE_MAP_PROVIDERS = {
+  positron: {
+    id: 'positron',
+    label: 'Clean Canvas (Positron)',
+    url: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+    attribution: '&copy; <a href="https://carto.com/">CARTO</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | Assam State Space Application Centre'
+  },
+  satellite: {
+    id: 'satellite',
+    label: 'Satellite Imagery (ASSAC)',
+    url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+    attribution: '&copy; <a href="https://www.esri.com/">Esri</a>, Maxar, Earthstar Geographics | ASSAC Space'
+  },
+  osm: {
+    id: 'osm',
+    label: 'Street Map (OSM)',
+    url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | ASSAC'
+  }
+};
 
 // Custom DivIcon generator for Intersections
 function createIntersectionIcon(intersection, isSelected, emergencyActive) {
@@ -53,6 +75,8 @@ export default function GisMap({
   emergencyActive,
   onSelectCamera 
 }) {
+  // Default to CartoDB Positron: the best free, no-API-key minimalist light map for traffic visualization
+  const [selectedBaseMap, setSelectedBaseMap] = useState('positron');
   const [activeLayers, setActiveLayers] = useState({
     corridors: true,
     intersections: true,
@@ -63,51 +87,96 @@ export default function GisMap({
     setActiveLayers(prev => ({ ...prev, [layer]: !prev[layer] }));
   };
 
+  const currentProvider = BASE_MAP_PROVIDERS[selectedBaseMap] || BASE_MAP_PROVIDERS.positron;
+
   return (
     <div className="relative w-full h-[520px] rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
-      {/* Map Control Overlay */}
-      <div className="absolute top-3 left-3 z-[1000] bg-white/95 backdrop-blur-md p-2 rounded-lg border border-slate-200 shadow-md text-xs flex flex-wrap items-center gap-2">
-        <span className="font-bold text-slate-700 flex items-center gap-1.5 mr-1">
-          <Layers className="w-3.5 h-3.5 text-blue-600" /> GIS Layers:
-        </span>
-        <button 
-          onClick={() => toggleLayer('corridors')}
-          className={`px-2.5 py-1 rounded font-medium transition-all ${activeLayers.corridors ? 'bg-blue-50 text-blue-700 border border-blue-200 shadow-xs' : 'bg-slate-100 text-slate-600'}`}
-        >
-          Corridors (LOS)
-        </button>
-        <button 
-          onClick={() => toggleLayer('intersections')}
-          className={`px-2.5 py-1 rounded font-medium transition-all ${activeLayers.intersections ? 'bg-blue-50 text-blue-700 border border-blue-200 shadow-xs' : 'bg-slate-100 text-slate-600'}`}
-        >
-          Intersections ({INTERSECTIONS.length})
-        </button>
-        <button 
-          onClick={() => toggleLayer('vehicles')}
-          className={`px-2.5 py-1 rounded font-medium transition-all ${activeLayers.vehicles ? 'bg-blue-50 text-blue-700 border border-blue-200 shadow-xs' : 'bg-slate-100 text-slate-600'}`}
-        >
-          ASTC & 108 Fleet
-        </button>
+      {/* Top Controls Bar */}
+      <div className="absolute top-3 left-3 right-3 z-[1000] flex flex-wrap items-center justify-between gap-2 pointer-events-none">
+        {/* Left: GIS Feature Overlays */}
+        <div className="bg-white/95 backdrop-blur-md p-1.5 rounded-lg border border-slate-200 shadow-md text-xs flex flex-wrap items-center gap-1.5 pointer-events-auto">
+          <span className="font-bold text-slate-700 flex items-center gap-1 px-1">
+            <Layers className="w-3.5 h-3.5 text-blue-600" /> Layers:
+          </span>
+          <button 
+            onClick={() => toggleLayer('corridors')}
+            className={`px-2.5 py-1 rounded-md font-medium transition-all cursor-pointer ${activeLayers.corridors ? 'bg-blue-600 text-white shadow-xs' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
+          >
+            Corridors (LOS)
+          </button>
+          <button 
+            onClick={() => toggleLayer('intersections')}
+            className={`px-2.5 py-1 rounded-md font-medium transition-all cursor-pointer ${activeLayers.intersections ? 'bg-blue-600 text-white shadow-xs' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
+          >
+            Intersections ({INTERSECTIONS.length})
+          </button>
+          <button 
+            onClick={() => toggleLayer('vehicles')}
+            className={`px-2.5 py-1 rounded-md font-medium transition-all cursor-pointer ${activeLayers.vehicles ? 'bg-blue-600 text-white shadow-xs' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
+          >
+            ASTC & 108 Fleet
+          </button>
+        </div>
+
+        {/* Right: Free Base Map Switcher */}
+        <div className="bg-white/95 backdrop-blur-md p-1.5 rounded-lg border border-slate-200 shadow-md text-xs flex items-center gap-1 pointer-events-auto">
+          <span className="font-bold text-slate-700 flex items-center gap-1 px-1">
+            <Globe className="w-3.5 h-3.5 text-emerald-600" /> Base:
+          </span>
+          <button
+            onClick={() => setSelectedBaseMap('positron')}
+            className={`px-2.5 py-1 rounded-md font-semibold transition-all cursor-pointer ${
+              selectedBaseMap === 'positron' 
+                ? 'bg-slate-900 text-white shadow-xs' 
+                : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+            }`}
+          >
+            Clean Canvas
+          </button>
+          <button
+            onClick={() => setSelectedBaseMap('satellite')}
+            className={`px-2.5 py-1 rounded-md font-semibold transition-all cursor-pointer ${
+              selectedBaseMap === 'satellite' 
+                ? 'bg-slate-900 text-white shadow-xs' 
+                : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+            }`}
+          >
+            Satellite
+          </button>
+          <button
+            onClick={() => setSelectedBaseMap('osm')}
+            className={`px-2.5 py-1 rounded-md font-semibold transition-all cursor-pointer ${
+              selectedBaseMap === 'osm' 
+                ? 'bg-slate-900 text-white shadow-xs' 
+                : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+            }`}
+          >
+            Streets
+          </button>
+        </div>
       </div>
 
       {/* Emergency Corridor Banner */}
       {emergencyActive && (
-        <div className="absolute top-3 right-3 z-[1000] bg-red-600 border border-red-500 shadow-lg px-3 py-1.5 rounded-lg text-xs text-white font-bold flex items-center gap-2 animate-pulse">
+        <div className="absolute top-16 left-3 z-[1000] bg-red-600 border border-red-500 shadow-lg px-3 py-1.5 rounded-lg text-xs text-white font-bold flex items-center gap-2 animate-pulse">
           <Ambulance className="w-4 h-4 text-white" />
           <span>GREEN WAVE ENGAGED: Jalukbari ➔ Maligaon ➔ GMCH (Bhangagarh)</span>
         </div>
       )}
 
-      {/* Leaflet Map Canvas with Light Voyager/Positron Tiles */}
+      {/* Leaflet Map Canvas */}
       <MapContainer 
         center={GUWAHATI_CENTER} 
         zoom={12} 
         style={{ height: '100%', width: '100%', background: '#F8FAFC' }}
         zoomControl={true}
       >
+        {/* Dynamic Free Base Tile Layer (CartoDB Positron / Satellite / OSM) */}
         <TileLayer
-          attribution='&copy; <a href="https://carto.com/attributions">CARTO</a> | Assam State Space Application Centre'
-          url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+          key={selectedBaseMap}
+          attribution={currentProvider.attribution}
+          url={currentProvider.url}
+          maxZoom={19}
         />
 
         {/* Corridor Polylines */}

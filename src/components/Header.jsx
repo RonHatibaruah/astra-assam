@@ -9,13 +9,15 @@ import {
   Pause,
   Lock,
   ShieldCheck,
-  UserCheck
+  UserCheck,
+  BookOpen
 } from 'lucide-react';
 
 export default function Header({ 
   emergencyActive, 
   onToggleEmergency, 
   onOpenAdmin,
+  onOpenTutorial,
   isAdminLoggedIn,
   activeIncidentsCount,
   avgSpeed,
@@ -98,6 +100,16 @@ export default function Header({
           >
             <Ambulance className="w-3.5 h-3.5" />
             <span>{emergencyActive ? 'GREEN WAVE ENGAGED' : '108 Green Wave'}</span>
+          </button>
+
+          {/* Interactive Tutorial & Operational Guide Trigger */}
+          <button
+            onClick={onOpenTutorial}
+            className="px-2.5 py-1.5 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-800 border border-blue-200 text-xs font-semibold flex items-center space-x-1.5 transition-all shadow-xs cursor-pointer"
+            title="Learn what ASTRA-Assam does and how to use it"
+          >
+            <BookOpen className="w-3.5 h-3.5 text-blue-600" />
+            <span>Tutorial &amp; Guide</span>
           </button>
 
           {/* Admin Console Trigger */}

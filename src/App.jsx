@@ -9,6 +9,7 @@ import AstcTransitPanel from './components/AstcTransitPanel';
 import ScenarioSandbox from './components/ScenarioSandbox';
 import AdminLoginModal from './components/AdminLoginModal';
 import AdminPanel from './components/AdminPanel';
+import TutorialModal from './components/TutorialModal';
 import { INTERSECTIONS, CORRIDORS } from './data/corridors';
 import { INITIAL_INCIDENTS } from './data/mockTelemetry';
 import { LayoutDashboard, BarChart2, Bus, PlayCircle, ShieldCheck, MapPin, Building, Info, ShieldAlert } from 'lucide-react';
@@ -20,6 +21,7 @@ export default function App() {
   const [selectedCameraId, setSelectedCameraId] = useState('CAM-01-BHANGAGARH');
   const [incidents, setIncidents] = useState(INITIAL_INCIDENTS);
   const [adminLoginOpen, setAdminLoginOpen] = useState(false);
+  const [tutorialOpen, setTutorialOpen] = useState(false);
   const [adminUser, setAdminUser] = useState(null);
   const [simRunning, setSimRunning] = useState(true);
   const [avgSpeed, setAvgSpeed] = useState(24);
@@ -110,6 +112,7 @@ export default function App() {
         emergencyActive={emergencyActive}
         onToggleEmergency={handleToggleEmergency}
         onOpenAdmin={handleAdminClick}
+        onOpenTutorial={() => setTutorialOpen(true)}
         isAdminLoggedIn={!!adminUser}
         activeIncidentsCount={incidents.filter(i => i.status !== 'RESOLVED').length}
         avgSpeed={avgSpeed}
@@ -302,6 +305,12 @@ export default function App() {
         isOpen={adminLoginOpen}
         onClose={() => setAdminLoginOpen(false)}
         onLoginSuccess={handleLoginSuccess}
+      />
+
+      {/* Interactive Application Tutorial Modal */}
+      <TutorialModal
+        isOpen={tutorialOpen}
+        onClose={() => setTutorialOpen(false)}
       />
 
       {/* Global Application Footer with Disclaimer, Lead Applicant & Copyrights */}

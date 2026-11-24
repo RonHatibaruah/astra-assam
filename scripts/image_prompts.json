@@ -1,0 +1,58 @@
+[
+  {
+    "id": "arch",
+    "filename": "infographic_system_architecture.png",
+    "title": "ASTRA-Assam End-to-End Edge-Cloud Smart Transport Architecture",
+    "section": "Technical Architecture",
+    "prompt": "A visionary 16:9 widescreen technological architectural infographic on a clean white and light-gray blueprint grid background illustrating ASTRA-ASSAM: END-TO-END EDGE-CLOUD SMART TRANSPORT ARCHITECTURE. The header features bold dark navy typography with subtitle Multi-Tiered AI Computer Vision, ASSAC GIS Spatial Integration & Edge Signal Preemption Pipeline. The visual presents a 4-tiered horizontal system architecture: 1) Tier 1: Field Sensing Layer (CCTV HD Corridor Feeds, GPS On-Board ASTC Bus Telematics, Bharalu Canal Ultrasonic Water Sensors, Emergency 108 Sirens); 2) Tier 2: Edge Computing Layer (NVIDIA Jetson Orin Industrial nodes, 275 TOPS, YOLOv8 Multi-Class Vehicle Detection, TensorRT FP16 @ 31.8 FPS, DPDP Act 2023 Volatile RAM Frame Drop); 3) Tier 3: Core Decision Engine (Adaptive Webster Signal Split Optimizer, 108 Emergency Green Wave Preemption Router, Guwahati GIS Flash-Flood Matrix); 4) Tier 4: Command Center & Actuation (ASSAC Spatial GIS Dashboard, Police ITMS Console, SCATS/ATC Roadside Signal Controllers). Includes metric badges: 31.8 FPS Edge Inference, -18.7% Congestion Delay, 39.3% Green Wave Speedup, 100% Volatile Frame Privacy. Clean 2D flat vector aesthetic, royal blue, electric cyan, emerald green, and amber accents, ultra-sharp typography."
+  },
+  {
+    "id": "benchmarks",
+    "filename": "infographic_mixed_traffic_benchmarks.png",
+    "title": "Mixed-Traffic Vehicle Detection & Edge Accuracy Benchmarks",
+    "section": "Detection & Benchmarks",
+    "prompt": "A comprehensive 16:9 widescreen technical benchmark and empirical performance matrix infographic on a clean white blueprint background with subtle technical gridlines illustrating ASTRA-ASSAM: MIXED-TRAFFIC VEHICLE DETECTION & EDGE ACCURACY BENCHMARKS. The header displays bold dark navy typography ASSAM HETEROGENEOUS URBAN TRAFFIC CV BENCHMARK with subtitle YOLOv8 Edge Evaluation Across Chaotic Guwahati Road Conditions. The visual layout presents three structured panels: 1) Multi-Class Vehicle Detection Matrix showing 6 distinct vehicle classes with precision meters (Two-Wheelers: 94.2% mAP, Auto-Rickshaws: 91.8% mAP, City Buses / ASTC: 96.5% mAP, Commercial Trucks: 93.1% mAP, Ambulances / Emergency: 98.7% mAP, Pedestrians: 89.2% mAP); 2) Adverse Weather & Environmental Degradation Resilience Matrix (Bright Sun Glare: 93.8% mAP, Heavy Monsoon Rain: 88.4% mAP, Night Low-Light Headlights: 86.9% mAP, Waterlogging Water Reflection: 89.1% mAP); 3) Edge Hardware Compute Profiling Card comparing Jetson Orin Nano vs Orin NX vs Orin AGX (Latency: 28.4ms, Power: 15W, GPU Utilization: 68%). Clean 2D flat vector design, high-contrast dark navy typography, cyan, emerald green, and amber diagnostic badges."
+  },
+  {
+    "id": "green_wave",
+    "filename": "infographic_emergency_green_wave.png",
+    "title": "108 Ambulance Emergency Green Wave Preemption Protocol",
+    "section": "108 Emergency Green Wave",
+    "prompt": "A high-impact 16:9 widescreen technological emergency response framework infographic on a clean white and light-gray blueprint grid background illustrating ASTRA-ASSAM: 108 AMBULANCE EMERGENCY GREEN WAVE PREEMPTION PROTOCOL. The header features bold dark navy typography 108 EMERGENCY CORRIDOR PREEMPTION & LIFE-CRITICAL TRANSIT PROTOCOL with subtitle Dynamic Cascade Signal Clearing Towards Gauhati Medical College & Hospital (GMCH). The center visual depicts a stylized arterial corridor map of Guwahati showing an active 108 Ambulance moving through 4 sequential signalized intersections (Bhangagarh -> GMCH Gate -> Ulubari -> Paltan Bazar). Three distinct tactical phases are illustrated: 1) Ingress Phase (Geofence GPS Beacon triggered at 600m distance, dynamic queue flusher green stage allocated); 2) Passage Phase (Cross-traffic red hold engaged, green wave wave-front velocity synced at 45 km/h); 3) Egress Phase (Safe transition recovery cycle restoring normal Webster splits in under 12 seconds). Flanked by live performance telemetry badges: 39.3% Transit Time Reduction, 14.8 Min to 9.0 Min Golden-Hour Saving, 0 Safety Conflicts, 100% Automated GPS Preemption. Clean 2D flat vector aesthetic, vibrant emergency red, medical green, royal blue, and cyan accents, ultra-sharp technical typography."
+  },
+  {
+    "id": "roadmap",
+    "filename": "infographic_budget_and_roadmap.png",
+    "title": "12-Month Phased Implementation Roadmap & Capital Allocation",
+    "section": "Roadmap & Budget",
+    "prompt": "A master institutional execution roadmap and phased capital allocation infographic in 16:9 widescreen format on a clean white blueprint background with subtle technical gridlines illustrating ASTRA-ASSAM: 12-MONTH IMPLEMENTATION ROADMAP & CAPITAL EXPENDITURE BLUEPRINT. The header displays bold dark navy typography 12-MONTH PHASED DEPLOYMENT MILESTONES & CAPEX ALLOCATION with subtitle Scaled Rollout for Guwahati Metropolitan Traffic Network (NESFIC-D-22). The visual layout presents a chronological Gantt-style 4-stage pipeline across 12 months: 1) Phase 1 (M1-M3: Foundation & Field Calibration - 10 Corridor Cameras, ASSAC GIS baseline integration, ₹14.8 Lakhs); 2) Phase 2 (M4-M6: Pilot Corridor Deployment - 5 High-Density Junctions, Webster signal controller interfaces, ₹26.5 Lakhs); 3) Phase 3 (M7-M9: 108 Green Wave & ASTC Integration - 50 ASTC fleet units, GMCH trauma corridor preemption, ₹18.2 Lakhs); 4) Phase 4 (M10-M12: Full City Mesh & Handover - 25 Intersections, ASSAC GIS Cloud Sync, Police ITMS handover, ₹15.5 Lakhs). Accompanying budget pie chart breaking down Total ₹75.0 Lakhs: Hardware Edge Appliances (38%), Computer Vision R&D (24%), GIS & Telematics (18%), Deployment & Field Integration (12%), Contingency & Training (8%). Clean 2D flat vector aesthetic, crisp lines, professional corporate palette with navy, cyan, emerald green, and amber."
+  },
+  {
+    "id": "webster",
+    "filename": "infographic_webster_signal_optimization.png",
+    "title": "Dynamic Webster Adaptive Signal Timing & Queue Dissipation Model",
+    "section": "Webster Adaptive Control",
+    "prompt": "A master mathematical and traffic engineering infographic in 16:9 widescreen on a clean white blueprint background illustrating ASTRA-ASSAM: DYNAMIC WEBSTER ADAPTIVE SIGNAL TIMING & QUEUE DISSIPATION MODEL. The header displays bold dark navy typography ADAPTIVE SPLIT-CYCLE SIGNAL OPTIMIZATION with subtitle Real-Time Cycle Length Calculation: C_opt = (1.5*L + 5) / (1 - Sum(Y_i)) Under Mixed Traffic. The visual layout presents: 1) The 4-Leg Intersection Phase Controller showing real-time split shifts between North-South GS Road Arterial and East-West Collector roads; 2) Detector Queue Length vs Green Time Allocation Curves; 3) Comparative Delay Distribution (Fixed Time 64.2s vs ASTRA-Assam 52.2s, -18.7% Reduction); 4) Level of Service (LOS) Shift from LOS E/F (Severe Congestion) to LOS C (Stable Flow). Clean 2D vector styling, crisp equations, electric cyan, royal blue, and amber indicators."
+  },
+  {
+    "id": "gis_flood",
+    "filename": "infographic_gis_flood_rerouting.png",
+    "title": "ASSAC Spatial GIS Mesh & Monsoon Flash-Flood Dynamic Elevation Routing",
+    "section": "Spatial GIS & Flood Rerouting",
+    "prompt": "An authoritative 16:9 widescreen geospatial intelligence infographic on a clean white background with subtle topographic blueprint contour lines illustrating ASTRA-ASSAM: ASSAC SPATIAL GIS MESH & MONSOON FLASH-FLOOD DYNAMIC ELEVATION ROUTING. The top header features bold dark navy typography ASSAC SPATIAL GIS INTEGRATION & MONSOON FLOOD MITIGATION with subtitle Automated Flood-Prone Corridor Detection & Dynamic Transit Divergence. The center features a stylized digital elevation map (DEM) of Guwahati highlighting the Brahmaputra basin, Bharalu river channels, and flood inundation zones (Rukminigaon, Anil Nagar, Zoo Road). Illustrates: 1) Real-time water-level telemetry sensors sending ultrasonic canal depths; 2) Dynamic GIS Cost-Surface Routing altering traffic signal cycles to divert arterial flows away from submerged choke points; 3) Emergency Evacuation Corridor priority routing. Metric badges: 2-Meter DEM Resolution, 100% Real-Time Water Gauge Telemetry, Zero Stalled Emergency Vehicles, 22 Flood-Risk Nodes Monitored. Clean 2D vector graphic, cyan, oceanic blue, emerald green, and warning amber accents."
+  },
+  {
+    "id": "edge_dpdp",
+    "filename": "infographic_edge_hardware_dpdp_privacy.png",
+    "title": "Industrial Edge Appliance Enclosure & DPDP Act 2023 Privacy-by-Design Architecture",
+    "section": "Hardware & Data Privacy",
+    "prompt": "A state-of-the-art 16:9 widescreen technical hardware architecture infographic on a clean white blueprint grid background illustrating ASTRA-ASSAM: INDUSTRIAL EDGE APPLIANCE & DPDP ACT 2023 PRIVACY-BY-DESIGN SPECIFICATION. The header displays bold dark navy typography EDGE HARDWARE ENCLOSURE & DPDP ACT 2023 PRIVACY-BY-DESIGN COMPLIANCE with subtitle Zero-Storage Volatile RAM Inferencing Architecture for Public Corridors. The visual shows: 1) Cutaway diagram of the Rugged Industrial Edge Node (NVIDIA Jetson Orin NX, IP67 Weatherproof Enclosure, Solar/Dual-Grid Power Backup, 4G/5G Industrial Gateway); 2) Data Privacy Pipeline (Raw HD Frame Ingestion -> Immediate TensorRT YOLO Inference in Volatile LPDDR5 RAM -> Instantaneous Frame Buffer Zero-Wipe -> Transmission of Only Anonymous Aggregated Metadata: Count, Speed, Vector, Class); 3) DPDP Act 2023 Compliance Shield highlighting Zero Biometric Capture, Zero License Plate Storage, and Sovereign Cloud Sync. Clean 2D flat vector aesthetic, royal navy, industrial gray, emerald green, and cyan."
+  },
+  {
+    "id": "corridors_topology",
+    "filename": "infographic_guwahati_corridors_command_topology.png",
+    "title": "Guwahati 5-Corridor Arterial Mesh & Multi-Agency Joint Command Topology",
+    "section": "Corridor Deployment & Governance",
+    "prompt": "A comprehensive 16:9 widescreen urban network and governance topology infographic on a clean white blueprint background illustrating ASTRA-ASSAM: GUWAHATI 5-CORRIDOR ARTERIAL MESH & MULTI-AGENCY COMMAND CENTER TOPOLOGY. The header displays bold dark navy typography GUWAHATI URBAN CORRIDOR DEPLOYMENT & MULTI-AGENCY INTEROPERABILITY with subtitle Synchronized Spatial-Temporal Operations Across ASSAC, Guwahati Traffic Police & ASTC. The visual presents: 1) Map of the 5 Arterial Corridors (Jalukbari Rotary, Maligaon Flyover Corridor, GS Road Commercial Spine, Bhangagarh GMCH Health Corridor, Paltan Bazar Railway Hub); 2) Central Unified GIS Command Center aggregating video metadata, signal telemetry, ASTC bus transit tracking, and 108 emergency dispatch; 3) Agency Roles & Handover Matrix (ASSAC: Geospatial Architecture & Satellite Layers; Traffic Police: Active Enforcement & Manual Overrides; ASTC: Fleet Priority & Route Timings). Metric badges: 42.5 km Monitored Corridors, 5 Strategic Hubs, 1 Unified GIS Cockpit. Clean 2D flat vector styling, dark navy, vibrant blue, emerald green, and purple accents."
+  }
+]

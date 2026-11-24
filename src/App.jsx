@@ -7,13 +7,11 @@ import IncidentAlerts from './components/IncidentAlerts';
 import CorridorAnalytics from './components/CorridorAnalytics';
 import AstcTransitPanel from './components/AstcTransitPanel';
 import ScenarioSandbox from './components/ScenarioSandbox';
-import ProposalViewerModal from './components/ProposalViewerModal';
-import ProofOfWorkModal from './components/ProofOfWorkModal';
 import AdminLoginModal from './components/AdminLoginModal';
 import AdminPanel from './components/AdminPanel';
 import { INTERSECTIONS, CORRIDORS } from './data/corridors';
 import { INITIAL_INCIDENTS } from './data/mockTelemetry';
-import { LayoutDashboard, BarChart2, Bus, PlayCircle, ShieldCheck, FileCheck } from 'lucide-react';
+import { LayoutDashboard, BarChart2, Bus, PlayCircle, ShieldCheck, MapPin, Building, Info, ShieldAlert } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('command'); // 'command' | 'analytics' | 'transit' | 'sandbox' | 'admin'
@@ -21,8 +19,6 @@ export default function App() {
   const [selectedIntersection, setSelectedIntersection] = useState(INTERSECTIONS[4]); // Bhangagarh / GMCH
   const [selectedCameraId, setSelectedCameraId] = useState('CAM-01-BHANGAGARH');
   const [incidents, setIncidents] = useState(INITIAL_INCIDENTS);
-  const [proposalModalOpen, setProposalModalOpen] = useState(false);
-  const [proofOfWorkOpen, setProofOfWorkOpen] = useState(false);
   const [adminLoginOpen, setAdminLoginOpen] = useState(false);
   const [adminUser, setAdminUser] = useState(null);
   const [simRunning, setSimRunning] = useState(true);
@@ -113,8 +109,6 @@ export default function App() {
       <Header
         emergencyActive={emergencyActive}
         onToggleEmergency={handleToggleEmergency}
-        onOpenProposal={() => setProposalModalOpen(true)}
-        onOpenProofOfWork={() => setProofOfWorkOpen(true)}
         onOpenAdmin={handleAdminClick}
         isAdminLoggedIn={!!adminUser}
         activeIncidentsCount={incidents.filter(i => i.status !== 'RESOLVED').length}
@@ -303,18 +297,6 @@ export default function App() {
         )}
       </main>
 
-      {/* Proposal Viewer Modal */}
-      <ProposalViewerModal
-        isOpen={proposalModalOpen}
-        onClose={() => setProposalModalOpen(false)}
-      />
-
-      {/* Proof of Work PDF Modal */}
-      <ProofOfWorkModal
-        isOpen={proofOfWorkOpen}
-        onClose={() => setProofOfWorkOpen(false)}
-      />
-
       {/* Admin Login Modal */}
       <AdminLoginModal
         isOpen={adminLoginOpen}
@@ -322,29 +304,95 @@ export default function App() {
         onLoginSuccess={handleLoginSuccess}
       />
 
-      {/* Global Application Footer */}
-      <footer className="mt-6 border-t border-slate-200 bg-white px-4 py-3.5 text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-2 shadow-xs">
-        <div className="flex items-center space-x-2">
-          <span className="font-bold text-slate-800">ASTRA-Assam</span>
-          <span>•</span>
-          <span>NESFIC 2026 Problem Statement: NESFIC-D-22</span>
-          <span>•</span>
-          <span>Sponsor: Assam State Space Application Centre (ASSAC)</span>
+      {/* Global Application Footer with Disclaimer, Lead Applicant & Copyrights */}
+      <footer className="mt-8 border-t border-slate-200 bg-white shadow-xs">
+        {/* Formal Disclaimer Banner */}
+        <div className="bg-amber-50/70 border-b border-amber-200/80 px-4 py-3 text-xs text-amber-900">
+          <div className="max-w-[1720px] mx-auto flex items-start space-x-2.5">
+            <ShieldAlert className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
+            <div className="leading-relaxed">
+              <span className="font-bold text-amber-950 uppercase tracking-wide mr-1">Disclaimer:</span>
+              ASTRA-Assam is an evaluation prototype and decision-support simulation environment engineered for the 
+              <span className="font-semibold text-amber-950"> North East Seva First Innovation Challenge (NESFIC 2026)</span> under 
+              <span className="font-semibold text-amber-950"> Problem Statement NESFIC-D-22 (Government Track)</span>. 
+              Real-time telemetry, edge video processing feeds, and adaptive Webster signal timings are calibrated on actual Guwahati topological corridors 
+              (Jalukbari, GS Road, Maligaon, GMCH, Paltan Bazar) under simulated edge telemetry. In strict adherence to the 
+              <span className="font-semibold text-amber-950"> Digital Personal Data Protection (DPDP) Act 2023</span>, 
+              all video stream inferencing executes in volatile edge memory without persistent storage, biometric extraction, or personally identifiable data capture.
+            </div>
+          </div>
         </div>
-        <div className="flex items-center space-x-4">
-          <button 
-            onClick={() => setProofOfWorkOpen(true)}
-            className="text-emerald-700 hover:text-emerald-800 font-semibold underline cursor-pointer"
-          >
-            Proof of Work (PDF)
-          </button>
-          <button 
-            onClick={() => setProposalModalOpen(true)}
-            className="text-blue-600 hover:text-blue-700 font-semibold underline cursor-pointer"
-          >
-            Proposal Document (12 Sections)
-          </button>
-          <span>Department of Science, Technology & Climate Change, Govt. of Assam</span>
+
+        {/* Main Footer Metadata & Attribution Grid */}
+        <div className="max-w-[1720px] mx-auto px-4 py-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-xs text-slate-600">
+            {/* Column 1: System Info */}
+            <div className="space-y-1.5">
+              <div className="flex items-center space-x-2">
+                <span className="font-extrabold text-sm text-slate-900 tracking-tight">ASTRA-Assam</span>
+                <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-blue-100 text-blue-800 border border-blue-200">
+                  NESFIC-D-22
+                </span>
+              </div>
+              <p className="text-slate-500 leading-normal">
+                Automated Spatial-Temporal Real-time Analytics for Urban Mobility &amp; 108 Emergency Green Wave Preemption.
+              </p>
+            </div>
+
+            {/* Column 2: Lead Applicant */}
+            <div className="space-y-1.5">
+              <span className="font-bold text-slate-900 uppercase tracking-wider text-[11px] block">
+                Lead Applicant &amp; Architecture
+              </span>
+              <p className="font-semibold text-slate-800 text-sm">
+                Dhruba Jyoti Bhuyan
+              </p>
+              <p className="text-slate-500 text-[11px]">
+                Principal Solution Architect · Civic Technology &amp; Edge AI Systems
+              </p>
+            </div>
+
+            {/* Column 3: Institutional Sponsor */}
+            <div className="space-y-1.5">
+              <span className="font-bold text-slate-900 uppercase tracking-wider text-[11px] block">
+                Institutional Sponsor
+              </span>
+              <p className="font-semibold text-slate-800">
+                Assam State Space Application Centre (ASSAC)
+              </p>
+              <p className="text-slate-500 text-[11px]">
+                Department of Science, Technology &amp; Climate Change, Government of Assam
+              </p>
+            </div>
+
+            {/* Column 4: Geographic Anchor */}
+            <div className="space-y-1.5">
+              <span className="font-bold text-slate-900 uppercase tracking-wider text-[11px] block">
+                Deployment Node
+              </span>
+              <div className="flex items-center space-x-1.5 text-slate-700">
+                <MapPin className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+                <span>Guwahati, Kamrup Metropolitan, Assam, India</span>
+              </div>
+              <p className="text-slate-400 font-mono text-[11px]">
+                Geo-Coords: 26.148044° N, 91.755432° E (ICBM)
+              </p>
+            </div>
+          </div>
+
+          {/* Bottom Copyright Bar */}
+          <div className="mt-6 pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
+            <div>
+              <span className="font-semibold text-slate-800">Copyright &copy; 2026 Avanteo Labs.</span> All rights reserved.
+            </div>
+            <div className="flex items-center space-x-4 text-[11px] text-slate-400">
+              <span>NESFIC 2026 Innovation Challenge</span>
+              <span>•</span>
+              <span>DPDP Act 2023 Compliant</span>
+              <span>•</span>
+              <span>ASSAC GIS Spatial Integration</span>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
